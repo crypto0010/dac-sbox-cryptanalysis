@@ -70,6 +70,10 @@ testbench verified against the Python model; no simulator was available. The gat
 figures that appear in the manuscript's comparison table are quoted from the literature and
 are labelled as such.
 
+## License
+
+Released under the MIT License; see [`LICENSE`](LICENSE).
+
 ## Not included
 
 The referee reports and the base paper PDF are deliberately excluded: the former are
