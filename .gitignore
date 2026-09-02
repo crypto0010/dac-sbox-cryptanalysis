@@ -1,0 +1,29 @@
+# Build and cache artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.benchmarks/
+dist/
+
+# Generated output: recreated by main.py / run_optimized.py
+output/
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.pdf
+
+# Manuscript, correspondence and third-party material -- deliberately not published
+paper.tex
+paper.bib
+sampleIEEE.tex
+sn-jnl.cls
+sn-*.bst
+response_to_reviewers*
+reviewreport/
+basepaper.*

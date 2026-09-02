@@ -1,0 +1,6 @@
+# Python 3.12.10 (versions pinned to the environment that produced output/results.json)
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+prettytable==3.17.0
+pytest==9.0.2
