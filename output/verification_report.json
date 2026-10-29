@@ -1,6 +1,6 @@
 {
-  "git_commit": "1ef0fe350591afd74a8d9615855d38b405caabd5",
-  "git_describe": "1ef0fe3-dirty",
+  "git_commit": "ce0892576fc22f95ac4d5508440f0b68949631ed",
+  "git_describe": "v1.0.0",
   "tiers": {
     "A": {
       "checks": [
@@ -235,7 +235,7 @@
       ],
       "method": "Self-contained enumeration in verify_results.py (no code shared with src/) of every S-box metric, the archived DDT/LAT/BCT CSV files, the metric identities and the exact ideal-SAC count; plus the executable specification of Algorithm 2 (src/algorithm_spec.py).",
       "passed": true,
-      "seconds": 2.1,
+      "seconds": 2.5,
       "skipped": null,
       "title": "Direct table enumeration",
       "values_compared": 21682
@@ -251,19 +251,104 @@
       ],
       "method": "src.cipher_analysis.analyze_cipher re-run: HiGHS MILP (branch-number bound) and Matsui-style branch and bound over the real DDT/LAT; compared leaf by leaf.",
       "passed": true,
-      "seconds": 33.4,
+      "seconds": 17.5,
       "skipped": null,
       "title": "MILP bounds and exact trail search",
       "values_compared": 7464
     },
     "C": {
-      "checks": [],
+      "checks": [
+        {
+          "check": "nangate45/ASCON: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 18
+        },
+        {
+          "check": "nangate45/DAC: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 22
+        },
+        {
+          "check": "nangate45/DAC-OPT: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 21
+        },
+        {
+          "check": "nangate45/DAC-OPT-GOLD: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 24
+        },
+        {
+          "check": "nangate45/E-DAC: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 23
+        },
+        {
+          "check": "nangate45/Keccak-chi: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 16
+        },
+        {
+          "check": "nangate45/PRIMATE: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 18
+        },
+        {
+          "check": "sky130hd/ASCON: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 18
+        },
+        {
+          "check": "sky130hd/DAC: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 25
+        },
+        {
+          "check": "sky130hd/DAC-OPT: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 29
+        },
+        {
+          "check": "sky130hd/DAC-OPT-GOLD: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 25
+        },
+        {
+          "check": "sky130hd/E-DAC: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 28
+        },
+        {
+          "check": "sky130hd/Keccak-chi: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 14
+        },
+        {
+          "check": "sky130hd/PRIMATE: synthesis, gate-level check on 32 inputs, area, depth, delay, energy, leakage",
+          "detail": "",
+          "pass": true,
+          "values_compared": 20
+        }
+      ],
       "method": "Yosys/ABC synthesis of every S-box on NanGate45 and SKY130 (Liberty files SHA-256 checked), gate-level evaluation on all 32 inputs, area, depth, delay, energy and leakage recomputed.",
-      "passed": false,
-      "seconds": 0.0,
-      "skipped": "run with --hardware",
+      "passed": true,
+      "seconds": 17.5,
+      "skipped": null,
       "title": "Logic synthesis",
-      "values_compared": 0
+      "values_compared": 301
     },
     "D": {
       "checks": [
@@ -294,5 +379,5 @@
     "yowasp-runtime": "1.96",
     "yowasp-yosys": "0.70.0.0.post1259"
   },
-  "working_tree_clean": false
+  "working_tree_clean": true
 }

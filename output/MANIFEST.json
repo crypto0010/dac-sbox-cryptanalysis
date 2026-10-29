@@ -55,8 +55,8 @@
     "tables/PRIMATE_lat.csv": "9af56aa3ca39ba267ccd92ce975f66c18d5048a3303701fbca6e1c98fdbb1725",
     "tables/PRIMATE_sbox.csv": "a2aa4fb168e4b8dbb28dda85c492e355c401689b31940e9e7086bef45f6d9dca"
   },
-  "git_commit": "1ef0fe350591afd74a8d9615855d38b405caabd5",
-  "git_describe": "1ef0fe3-dirty",
+  "git_commit": "ce0892576fc22f95ac4d5508440f0b68949631ed",
+  "git_describe": "v1.0.0",
   "seeds": {
     "affine-class statistics": "PCG64 2026",
     "annealing study": "x0 in {0.05, ..., 0.50}",
@@ -77,5 +77,5 @@
     "yowasp-runtime": "1.96",
     "yowasp-yosys": "0.70.0.0.post1259"
   },
-  "working_tree_clean": false
+  "working_tree_clean": true
 }
