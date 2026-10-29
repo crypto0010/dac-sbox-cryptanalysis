@@ -1,0 +1,8242 @@
+{
+  "creator": "Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)",
+  "modules": {
+    "AND2_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.918145"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.974630"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND2_X2": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.656515"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.726477"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND2_X4": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.195354"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.536501"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND3_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.879747"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.927525"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.964824"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND3_X2": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.599415"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.648903"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.700149"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND3_X4": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.085124"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.300701"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.581806"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND4_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.856528"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.902272"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.924115"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "0.944508"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND4_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.550933"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.605000"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.649913"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.684580"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AND4_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.014616"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.260554"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.486019"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.766184"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "ANTENNA_X1": {
+      "attributes": {
+        "area": "0.266000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.023429"
+          }
+        }
+      }
+    },
+    "AOI211_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.620338"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.658423"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.655202"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.679479"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI211_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.114220"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.425452"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.165257"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "3.454374"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI211_X4": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.668945"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.696344"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.632665"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.749982"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI21_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.626352"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.647003"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.676853"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI21_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.136406"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.129761"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.482455"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI21_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.139254"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.401877"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.713197"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI221_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.677530"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.581620"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.628297"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.632251"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.706745"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI221_X2": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.504692"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.226091"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.135271"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "3.145027"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "3.501501"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI221_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.649091"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.557194"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.649664"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.600832"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.681052"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI222_X1": {
+      "attributes": {
+        "area": "2.128000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.636678"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.695263"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.579130"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.621925"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.547208"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "1.586715"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI222_X2": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.164179"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.216068"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.026291"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.400260"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "2.964483"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "3.315441"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI222_X4": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.596468"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.701800"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.596573"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.677640"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.578039"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "1.650615"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI22_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.687512"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.689746"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.584010"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.623031"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI22_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.147425"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.477477"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "2.987578"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.437290"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "AOI22_X4": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.418618"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.780931"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.090127"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "6.605098"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X1": {
+      "attributes": {
+        "area": "0.798000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.974659"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X16": {
+      "attributes": {
+        "area": "6.650000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "12.410827"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X2": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.779209"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X32": {
+      "attributes": {
+        "area": "13.034000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "26.703923"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X4": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.401892"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "BUF_X8": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.585178"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKBUF_X1": {
+      "attributes": {
+        "area": "0.798000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.779830"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKBUF_X2": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.405914"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKBUF_X3": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.421162"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKGATETST_X1": {
+      "attributes": {
+        "area": "3.990000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.812200"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.877980"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.776756"
+          }
+        }
+      }
+    },
+    "CLKGATETST_X2": {
+      "attributes": {
+        "area": "4.256000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.818591"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.872203"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.810873"
+          }
+        }
+      }
+    },
+    "CLKGATETST_X4": {
+      "attributes": {
+        "area": "5.320000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.438941"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.930490"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.814723"
+          }
+        }
+      }
+    },
+    "CLKGATETST_X8": {
+      "attributes": {
+        "area": "7.714000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "7.959177"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.901507"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.801331"
+          }
+        }
+      }
+    },
+    "CLKGATE_X1": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.837892"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.915181"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKGATE_X2": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.562124"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.893230"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKGATE_X4": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.253856"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.881805"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "CLKGATE_X8": {
+      "attributes": {
+        "area": "6.916000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "E": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "GCK": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "7.654296"
+          }
+        },
+        "E": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.162619"
+          }
+        },
+        "GCK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DFFRS_X1": {
+      "attributes": {
+        "area": "6.384000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.963316"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.148034"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.407088"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.211875"
+          }
+        }
+      }
+    },
+    "DFFRS_X2": {
+      "attributes": {
+        "area": "6.916000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.940231"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.162239"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.844314"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.620929"
+          }
+        }
+      }
+    },
+    "DFFR_X1": {
+      "attributes": {
+        "area": "5.320000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.976605"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.128277"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.778528"
+          }
+        }
+      }
+    },
+    "DFFR_X2": {
+      "attributes": {
+        "area": "5.852000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.965663"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.128370"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.475099"
+          }
+        }
+      }
+    },
+    "DFFS_X1": {
+      "attributes": {
+        "area": "5.320000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.965214"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.163714"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.355893"
+          }
+        }
+      }
+    },
+    "DFFS_X2": {
+      "attributes": {
+        "area": "5.586000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.968853"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.163041"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.333554"
+          }
+        }
+      }
+    },
+    "DFF_X1": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.949653"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.140290"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DFF_X2": {
+      "attributes": {
+        "area": "5.054000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.930494"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.127600"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DLH_X1": {
+      "attributes": {
+        "area": "2.660000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "G": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.914139"
+          }
+        },
+        "G": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.985498"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DLH_X2": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "G": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.161008"
+          }
+        },
+        "G": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.987008"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DLL_X1": {
+      "attributes": {
+        "area": "2.660000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "GN": {
+          "direction": "input",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.883012"
+          }
+        },
+        "GN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.989103"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DLL_X2": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "GN": {
+          "direction": "input",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.130534"
+          }
+        },
+        "GN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.982609"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "FA_X1": {
+      "attributes": {
+        "area": "4.256000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "CI": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "CO": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "S": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.745709"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.471985"
+          }
+        },
+        "CI": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "2.762078"
+          }
+        },
+        "CO": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "FILLCELL_X1": {
+      "attributes": {
+        "area": "0.266000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "FILLCELL_X16": {
+      "attributes": {
+        "area": "4.256000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "FILLCELL_X2": {
+      "attributes": {
+        "area": "0.266000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "FILLCELL_X32": {
+      "attributes": {
+        "area": "8.512000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "FILLCELL_X4": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "FILLCELL_X8": {
+      "attributes": {
+        "area": "2.128000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "HA_X1": {
+      "attributes": {
+        "area": "2.660000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "CO": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "S": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.185865"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.447793"
+          }
+        },
+        "CO": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X1": {
+      "attributes": {
+        "area": "0.532000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.700230"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X16": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "25.228138"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X2": {
+      "attributes": {
+        "area": "0.798000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.250891"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X32": {
+      "attributes": {
+        "area": "8.778000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "49.191468"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X4": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.258425"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INV_X8": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "11.810652"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "LOGIC0_X1": {
+      "attributes": {
+        "area": "0.532000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "Z": {
+          "direction": "output",
+          "bits": [ 2 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "LOGIC1_X1": {
+      "attributes": {
+        "area": "0.532000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "Z": {
+          "direction": "output",
+          "bits": [ 2 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "MUX2_X1": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "S": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.946420"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.944775"
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.919942"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "MUX2_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "S": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.592289"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.735083"
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "2.624002"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND2_X1": {
+      "attributes": {
+        "area": "0.798000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.599032"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.664199"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND2_X2": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.053103"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.450993"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND2_X4": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "5.954965"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.201850"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND3_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.590286"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.621225"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.650377"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND3_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "2.977805"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.286375"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.558898"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND3_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.251026"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.913977"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "7.155898"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND4_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.522092"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.595210"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.638090"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.659913"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND4_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "2.922235"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.274809"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.476345"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.821420"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND4_X4": {
+      "attributes": {
+        "area": "4.788000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "5.652047"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "5.794997"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "5.905165"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "6.095535"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR2_X1": {
+      "attributes": {
+        "area": "0.798000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.714471"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.651345"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR2_X2": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.293307"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.346923"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR2_X4": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.773059"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.683366"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR3_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.763571"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.663842"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.616298"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR3_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.365192"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.430457"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.442792"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR3_X4": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.514946"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.171360"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.105358"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR4_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.736804"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.674130"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.635974"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.605950"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR4_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.390672"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.409886"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.519213"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.614957"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NOR4_X4": {
+      "attributes": {
+        "area": "4.788000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.569444"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.198845"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.081284"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "6.026564"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI211_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.614241"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.657276"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.595175"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.555656"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI211_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.331182"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.207926"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.995510"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "3.220988"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI211_X4": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.364038"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.550739"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "6.206207"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "6.423357"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI21_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.670716"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.662050"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.571893"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI21_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.180718"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.100793"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.328943"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI21_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.194658"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.351550"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.500426"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI221_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.630225"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.655378"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.605417"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.569676"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.583349"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI221_X2": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.536380"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.477443"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.124702"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.996374"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "3.245202"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI221_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.643414"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.672754"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.653010"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.548184"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.584488"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI222_X1": {
+      "attributes": {
+        "area": "2.128000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.576587"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.594615"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.617471"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.620241"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.596415"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "1.571112"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI222_X2": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.228228"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.000864"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.303845"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.999420"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "3.363464"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "3.074139"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI222_X4": {
+      "attributes": {
+        "area": "3.724000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "C1": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "C2": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.578915"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.574249"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.623590"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.612659"
+          }
+        },
+        "C1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.657646"
+          }
+        },
+        "C2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "1.641558"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI22_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.671043"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.584237"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.665448"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.615611"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI22_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.132973"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.397133"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.160700"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.333146"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI22_X4": {
+      "attributes": {
+        "area": "4.522000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.448126"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "6.523128"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.521216"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "6.481659"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OAI33_X1": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "B1": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "B2": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "B3": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.679872"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.617460"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.573439"
+          }
+        },
+        "B1": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.651275"
+          }
+        },
+        "B2": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.611999"
+          }
+        },
+        "B3": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.581480"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR2_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.946814"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.941939"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR2_X2": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.745940"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.694286"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR2_X4": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.384966"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.454664"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR3_X1": {
+      "attributes": {
+        "area": "1.330000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.959052"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.940092"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.921561"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR3_X2": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.747970"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.693050"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.672973"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR3_X4": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.374939"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.377189"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.394655"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR4_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "0.941245"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "0.938321"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.923766"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "0.914189"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR4_X2": {
+      "attributes": {
+        "area": "1.862000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.723147"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.675133"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.648372"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.636906"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "OR4_X4": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A1": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "A2": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "A3": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "A4": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A1": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.348292"
+          }
+        },
+        "A2": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "3.375615"
+          }
+        },
+        "A3": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.504744"
+          }
+        },
+        "A4": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "3.612474"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "SDFFRS_X1": {
+      "attributes": {
+        "area": "7.714000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 8 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 9 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.954596"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.143733"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.248538"
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.143806"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "capacitance": "0.860252"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.523381"
+          }
+        }
+      }
+    },
+    "SDFFRS_X2": {
+      "attributes": {
+        "area": "8.246000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 8 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 9 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.938213"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.123965"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.632774"
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.016430"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "capacitance": "0.863432"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "1.835024"
+          }
+        }
+      }
+    },
+    "SDFFR_X1": {
+      "attributes": {
+        "area": "6.650000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.026344"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.153532"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.490977"
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.000805"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "0.875562"
+          }
+        }
+      }
+    },
+    "SDFFR_X2": {
+      "attributes": {
+        "area": "6.916000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "RN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.962924"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.137331"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "RN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.527906"
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.922469"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "0.878615"
+          }
+        }
+      }
+    },
+    "SDFFS_X1": {
+      "attributes": {
+        "area": "6.650000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.979064"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.149948"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "2.002657"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "0.899169"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "1.338417"
+          }
+        }
+      }
+    },
+    "SDFFS_X2": {
+      "attributes": {
+        "area": "7.182000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "SN": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.961605"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.119363"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.912194"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "capacitance": "0.912904"
+          }
+        },
+        "SN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "capacitance": "2.224456"
+          }
+        }
+      }
+    },
+    "SDFF_X1": {
+      "attributes": {
+        "area": "6.118000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.958871"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.119679"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.889909"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "0.918794"
+          }
+        }
+      }
+    },
+    "SDFF_X2": {
+      "attributes": {
+        "area": "6.384000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 3 ]
+        },
+        "CK": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "SE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "QN": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "SI": {
+          "direction": "input",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.983853"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.126603"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "QN": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "SE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.853232"
+          }
+        },
+        "SI": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "capacitance": "0.898201"
+          }
+        }
+      }
+    },
+    "TAPCELL_X1": {
+      "attributes": {
+        "area": "0.266000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    },
+    "TBUF_X1": {
+      "attributes": {
+        "area": "2.128000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.879368"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.726556"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.053973"
+          }
+        }
+      }
+    },
+    "TBUF_X16": {
+      "attributes": {
+        "area": "6.916000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.520519"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.928340"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "13.066705"
+          }
+        }
+      }
+    },
+    "TBUF_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.325056"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.737893"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "1.636401"
+          }
+        }
+      }
+    },
+    "TBUF_X4": {
+      "attributes": {
+        "area": "2.926000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "3.380143"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.436324"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "3.222263"
+          }
+        }
+      }
+    },
+    "TBUF_X8": {
+      "attributes": {
+        "area": "4.788000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "6.719670"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.985662"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "6.744279"
+          }
+        }
+      }
+    },
+    "TINV_X1": {
+      "attributes": {
+        "area": "1.064000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "EN": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "I": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.752043"
+          }
+        },
+        "I": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.444645"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.799043"
+          }
+        }
+      }
+    },
+    "TLAT_X1": {
+      "attributes": {
+        "area": "3.458000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "D": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "G": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "OE": {
+          "direction": "input",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "D": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "1.139798"
+          }
+        },
+        "G": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "1.016017"
+          }
+        },
+        "OE": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "capacitance": "1.497228"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "capacitance": "0.791880"
+          }
+        }
+      }
+    },
+    "XNOR2_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "2.232754"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.573608"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "XNOR2_X2": {
+      "attributes": {
+        "area": "2.660000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ZN": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "4.003783"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.836936"
+          }
+        },
+        "ZN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "XOR2_X1": {
+      "attributes": {
+        "area": "1.596000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "2.232144"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "2.411453"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "XOR2_X2": {
+      "attributes": {
+        "area": "2.394000",
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Z": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "capacitance": "4.330455"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "capacitance": "4.500935"
+          }
+        },
+        "Z": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "sbox": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "work/DAC_OPT_GOLD_nangate45.v:1.1-38.10"
+      },
+      "ports": {
+        "x": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6 ]
+        },
+        "y": {
+          "direction": "output",
+          "bits": [ 7, 8, 9, 10, 11 ]
+        }
+      },
+      "cells": {
+        "$abc$237$blif$237$0": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "ZN": [ 12 ]
+          }
+        },
+        "$abc$237$blif$237$1": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "ZN": [ 13 ]
+          }
+        },
+        "$abc$237$blif$237$10": {
+          "hide_name": 1,
+          "type": "MUX2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 5 ],
+            "S": [ 3 ],
+            "Z": [ 14 ]
+          }
+        },
+        "$abc$237$blif$237$11": {
+          "hide_name": 1,
+          "type": "MUX2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "B": [ 14 ],
+            "S": [ 12 ],
+            "Z": [ 10 ]
+          }
+        },
+        "$abc$237$blif$237$12": {
+          "hide_name": 1,
+          "type": "NAND2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 3 ],
+            "ZN": [ 16 ]
+          }
+        },
+        "$abc$237$blif$237$13": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "B1": [ 2 ],
+            "B2": [ 3 ],
+            "ZN": [ 17 ]
+          }
+        },
+        "$abc$237$blif$237$14": {
+          "hide_name": 1,
+          "type": "MUX2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 4 ],
+            "S": [ 3 ],
+            "Z": [ 18 ]
+          }
+        },
+        "$abc$237$blif$237$15": {
+          "hide_name": 1,
+          "type": "AND2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 6 ],
+            "A2": [ 18 ],
+            "ZN": [ 19 ]
+          }
+        },
+        "$abc$237$blif$237$16": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B1": [ 18 ],
+            "B2": [ 6 ],
+            "ZN": [ 20 ]
+          }
+        },
+        "$abc$237$blif$237$17": {
+          "hide_name": 1,
+          "type": "OAI22_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 5 ],
+            "A2": [ 17 ],
+            "B1": [ 19 ],
+            "B2": [ 20 ],
+            "ZN": [ 9 ]
+          }
+        },
+        "$abc$237$blif$237$18": {
+          "hide_name": 1,
+          "type": "MUX2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 21 ],
+            "B": [ 22 ],
+            "S": [ 4 ],
+            "Z": [ 23 ]
+          }
+        },
+        "$abc$237$blif$237$19": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B1": [ 3 ],
+            "B2": [ 13 ],
+            "ZN": [ 24 ]
+          }
+        },
+        "$abc$237$blif$237$2": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "ZN": [ 25 ]
+          }
+        },
+        "$abc$237$blif$237$20": {
+          "hide_name": 1,
+          "type": "OAI221_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "C1": "input",
+            "C2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B1": [ 5 ],
+            "B2": [ 23 ],
+            "C1": [ 24 ],
+            "C2": [ 26 ],
+            "ZN": [ 27 ]
+          }
+        },
+        "$abc$237$blif$237$21": {
+          "hide_name": 1,
+          "type": "AOI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B1": [ 13 ],
+            "B2": [ 2 ],
+            "ZN": [ 28 ]
+          }
+        },
+        "$abc$237$blif$237$22": {
+          "hide_name": 1,
+          "type": "NAND2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 29 ],
+            "A2": [ 28 ],
+            "ZN": [ 30 ]
+          }
+        },
+        "$abc$237$blif$237$23": {
+          "hide_name": 1,
+          "type": "AND2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 27 ],
+            "A2": [ 30 ],
+            "ZN": [ 8 ]
+          }
+        },
+        "$abc$237$blif$237$24": {
+          "hide_name": 1,
+          "type": "NAND3_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "A3": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 5 ],
+            "A3": [ 21 ],
+            "ZN": [ 31 ]
+          }
+        },
+        "$abc$237$blif$237$25": {
+          "hide_name": 1,
+          "type": "AOI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B1": [ 32 ],
+            "B2": [ 31 ],
+            "ZN": [ 33 ]
+          }
+        },
+        "$abc$237$blif$237$26": {
+          "hide_name": 1,
+          "type": "MUX2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 22 ],
+            "S": [ 25 ],
+            "Z": [ 34 ]
+          }
+        },
+        "$abc$237$blif$237$27": {
+          "hide_name": 1,
+          "type": "NOR3_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "A3": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 13 ],
+            "A2": [ 5 ],
+            "A3": [ 2 ],
+            "ZN": [ 35 ]
+          }
+        },
+        "$abc$237$blif$237$28": {
+          "hide_name": 1,
+          "type": "AOI211_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "C1": "input",
+            "C2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "B": [ 35 ],
+            "C1": [ 34 ],
+            "C2": [ 13 ],
+            "ZN": [ 36 ]
+          }
+        },
+        "$abc$237$blif$237$29": {
+          "hide_name": 1,
+          "type": "NOR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 33 ],
+            "A2": [ 36 ],
+            "ZN": [ 7 ]
+          }
+        },
+        "$abc$237$blif$237$3": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "ZN": [ 21 ]
+          }
+        },
+        "$abc$237$blif$237$30": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "B1": [ 22 ],
+            "B2": [ 4 ],
+            "ZN": [ 37 ]
+          }
+        },
+        "$abc$237$blif$237$31": {
+          "hide_name": 1,
+          "type": "AOI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 35 ],
+            "B1": [ 37 ],
+            "B2": [ 5 ],
+            "ZN": [ 38 ]
+          }
+        },
+        "$abc$237$blif$237$32": {
+          "hide_name": 1,
+          "type": "NOR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 25 ],
+            "A2": [ 39 ],
+            "ZN": [ 40 ]
+          }
+        },
+        "$abc$237$blif$237$33": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "B1": [ 5 ],
+            "B2": [ 23 ],
+            "ZN": [ 41 ]
+          }
+        },
+        "$abc$237$blif$237$34": {
+          "hide_name": 1,
+          "type": "OAI22_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 12 ],
+            "A2": [ 38 ],
+            "B1": [ 40 ],
+            "B2": [ 41 ],
+            "ZN": [ 11 ]
+          }
+        },
+        "$abc$237$blif$237$4": {
+          "hide_name": 1,
+          "type": "XOR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Z": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 2 ],
+            "Z": [ 22 ]
+          }
+        },
+        "$abc$237$blif$237$5": {
+          "hide_name": 1,
+          "type": "OR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 2 ],
+            "ZN": [ 39 ]
+          }
+        },
+        "$abc$237$blif$237$6": {
+          "hide_name": 1,
+          "type": "OAI211_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "C1": "input",
+            "C2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 25 ],
+            "B": [ 39 ],
+            "C1": [ 22 ],
+            "C2": [ 13 ],
+            "ZN": [ 32 ]
+          }
+        },
+        "$abc$237$blif$237$7": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B1": [ 2 ],
+            "B2": [ 13 ],
+            "ZN": [ 29 ]
+          }
+        },
+        "$abc$237$blif$237$8": {
+          "hide_name": 1,
+          "type": "NOR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A1": "input",
+            "A2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 22 ],
+            "ZN": [ 26 ]
+          }
+        },
+        "$abc$237$blif$237$9": {
+          "hide_name": 1,
+          "type": "OAI21_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B1": "input",
+            "B2": "input",
+            "ZN": "output"
+          },
+          "connections": {
+            "A": [ 32 ],
+            "B1": [ 29 ],
+            "B2": [ 26 ],
+            "ZN": [ 15 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$237$new_n11": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n12": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n13": {
+          "hide_name": 1,
+          "bits": [ 25 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n14": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n15": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n16": {
+          "hide_name": 1,
+          "bits": [ 39 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n17": {
+          "hide_name": 1,
+          "bits": [ 32 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n18": {
+          "hide_name": 1,
+          "bits": [ 29 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n19": {
+          "hide_name": 1,
+          "bits": [ 26 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n20": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n21": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n23": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n24": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n25": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n26": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n27": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n29": {
+          "hide_name": 1,
+          "bits": [ 23 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n30": {
+          "hide_name": 1,
+          "bits": [ 24 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n31": {
+          "hide_name": 1,
+          "bits": [ 27 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n32": {
+          "hide_name": 1,
+          "bits": [ 28 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n33": {
+          "hide_name": 1,
+          "bits": [ 30 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n35": {
+          "hide_name": 1,
+          "bits": [ 31 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n36": {
+          "hide_name": 1,
+          "bits": [ 33 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n37": {
+          "hide_name": 1,
+          "bits": [ 34 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n38": {
+          "hide_name": 1,
+          "bits": [ 35 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n39": {
+          "hide_name": 1,
+          "bits": [ 36 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n41": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n42": {
+          "hide_name": 1,
+          "bits": [ 38 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n43": {
+          "hide_name": 1,
+          "bits": [ 40 ],
+          "attributes": {
+          }
+        },
+        "$abc$237$new_n44": {
+          "hide_name": 1,
+          "bits": [ 41 ],
+          "attributes": {
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "work/DAC_OPT_GOLD_nangate45.v:1.26-1.27"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 7, 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "work/DAC_OPT_GOLD_nangate45.v:1.46-1.47"
+          }
+        }
+      }
+    }
+  }
+}

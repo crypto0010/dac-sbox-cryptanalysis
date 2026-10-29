@@ -872,6 +872,22 @@ def optimizer_runtimes(result: Mapping[str, Any]) -> Dict[str, float]:
     return runtimes
 
 
+def require_metric_identities(metrics: Mapping[str, Mapping[str, Any]]) -> None:
+    """Refuse to continue when an S-box breaks a normalisation identity.
+
+    Raises:
+        RuntimeError: naming every violated identity, or every S-box whose
+            metrics do not carry the ``metric_identities`` record at all.
+    """
+    missing = [name for name, m in metrics.items() if "metric_identities" not in m]
+    broken = {name: [key for key, ok in m["metric_identities"].items() if not ok]
+              for name, m in metrics.items() if "metric_identities" in m}
+    broken = {name: keys for name, keys in broken.items() if keys}
+    if broken or missing:
+        raise RuntimeError(f"metric identities violated: {broken}; "
+                           f"not checked for: {missing}")
+
+
 def core_results(runner: str, arguments: Mapping[str, Any],
                  comparison: Mapping[str, Any]) -> Dict[str, Any]:
     """The part of ``results.json`` common to both runners.
@@ -881,7 +897,14 @@ def core_results(runner: str, arguments: Mapping[str, Any],
     ``literature_discrepancies`` keys).  The ``"schema"`` key is *not* set
     here: each runner writes its own file and stamps its own schema string,
     so a single library-wide constant would be dead (and misleading).
+
+    Raises:
+        RuntimeError: if any S-box violates one of the normalisation
+            identities of :func:`src.security_analysis.check_metric_identities`
+            (``W = 2 LAT``, ``C_max = 2 LAP``, ``NL = 2^(n-1) - 2^n LAP``,
+            ``delta = 2^n DP``); no results file is written in that case.
     """
+    require_metric_identities(comparison["metrics"])
     return {
         "runner": runner,
         "arguments": dict(arguments),

@@ -56,9 +56,10 @@ weak the design *is* weak, and that is what it shows for this cipher (see
 
 from __future__ import annotations
 
+import itertools
 import math
 import random
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import numpy as np
 from scipy.optimize import Bounds, LinearConstraint, milp
@@ -528,6 +529,273 @@ def reference_min_active_sboxes(max_rounds: int,
 
 
 # ============================================================
+# 4b. Exact trail search with the real DDT / LAT
+# ============================================================
+#: Absolute tolerance for comparing trail weights (sums of ``-log2`` values).
+_WEIGHT_EPS = 1e-9
+
+
+class _TrailModel:
+    """Exact round transitions of the SPN for one S-box and one model.
+
+    ``model = "differential"`` uses the nonzero DDT entries (``dx -> dy``)
+    and the state permutation; ``model = "linear"`` uses the nonzero LAT
+    entries (input mask ``a`` -> output mask ``b``) and the mask permutation
+    derived by :func:`derive_linear_mask_permutation`.  The weight of one
+    S-box transition is ``-log2(DDT[dx, dy] / 2^n)`` (differential
+    probability) or ``-log2(|LAT[a, b]| / 2^(n-1))`` (absolute correlation),
+    so the weight of a trail is ``-log2`` of its probability, resp. of its
+    absolute correlation by the piling-up lemma.
+
+    A state is a 32-bit integer whose bit ``31 - i`` is MSB-first index
+    ``i``.  The key addition and the complement of the two bypass bits are
+    affine and change neither a difference nor a mask, so one round maps a
+    state to ``P(S-layer output)``, the bypass bits passing unchanged.
+    """
+
+    def __init__(self, sbox: Sequence[int], model: str,
+                 perm: Sequence[int] = PERM_TABLE) -> None:
+        size = 1 << SBOX_BITS
+        if model == "differential":
+            table = np.asarray(compute_ddt(sbox, SBOX_BITS)["table"])
+            moves = perm
+            scale = float(size)
+        elif model == "linear":
+            table = np.abs(np.asarray(compute_lat(sbox, SBOX_BITS)["table"]))
+            moves = derive_linear_mask_permutation(perm)
+            scale = float(size // 2)
+        else:
+            raise ValueError(f"model must be 'differential' or 'linear', got {model!r}")
+        self.model = model
+        self.table = table
+        #: ``transitions[d]``: ``(weight, output)`` pairs with a nonzero table
+        #: entry, lightest first.
+        self.transitions: List[List[Tuple[float, int]]] = [[]] + [
+            sorted((-math.log2(table[d, o] / scale), o)
+                   for o in range(1, size) if table[d, o] != 0)
+            for d in range(1, size)]
+        self.min_weight = [0.0] + [self.transitions[d][0][0] for d in range(1, size)]
+        self.shifts = tuple(BLOCK_SIZE - SBOX_BITS * (j + 1) for j in range(NUM_SBOXES))
+        # contribution[j][o]: S-box j emitting ``o`` lands on these state bits
+        # after the permutation; bypass[v]: the same for the two bypass bits.
+        self.contribution = [
+            [self._place(moves, bits, o) for o in range(size)] for bits in SBOX_INPUT_BITS]
+        self.bypass = [self._place(moves, BYPASS_BITS, v, width=len(BYPASS_BITS))
+                       for v in range(1 << len(BYPASS_BITS))]
+        self.bypass_mask = (1 << len(BYPASS_BITS)) - 1
+
+    @staticmethod
+    def _place(moves: Sequence[int], bits: Sequence[int], value: int,
+               width: int = SBOX_BITS) -> int:
+        state = 0
+        for k, i in enumerate(bits):
+            if (value >> (width - 1 - k)) & 1:
+                state |= 1 << (BLOCK_SIZE - 1 - moves[i])
+        return state
+
+    def active(self, state: int) -> List[Tuple[int, int]]:
+        """``(window, input)`` of every active S-box of ``state``."""
+        return [(j, (state >> shift) & 31) for j, shift in enumerate(self.shifts)
+                if (state >> shift) & 31]
+
+    def successors(self, state: int):
+        """``(weight, next_state, outputs)`` for every one-round transition."""
+        windows = self.active(state)
+        base = self.bypass[state & self.bypass_mask]
+        choices = [self.transitions[d] for _, d in windows]
+        for combo in itertools.product(*choices):
+            nxt, weight = base, 0.0
+            for (j, _), (w, o) in zip(windows, combo):
+                nxt ^= self.contribution[j][o]
+                weight += w
+            yield weight, nxt, tuple(o for _, o in combo)
+
+    def start_states(self, max_active: int):
+        """Every nonzero state with at most ``max_active`` active S-boxes."""
+        for count in range(0, min(max_active, NUM_SBOXES) + 1):
+            for windows in itertools.combinations(range(NUM_SBOXES), count):
+                for values in itertools.product(range(1, 32), repeat=count):
+                    state = 0
+                    for j, v in zip(windows, values):
+                        state |= v << self.shifts[j]
+                    for low in range(1 << len(BYPASS_BITS)):
+                        if state | low:
+                            yield state | low
+
+
+def exact_min_active_sboxes(sbox: Sequence[int], max_rounds: int,
+                            model: str = "differential") -> Dict[str, Any]:
+    """Exact minimum number of active S-boxes, using the real DDT or LAT.
+
+    Unlike :func:`min_active_sboxes`, which knows only the branch number,
+    this search admits a transition ``d -> o`` of an S-box only when the
+    table entry is nonzero, so its counts are those of trails that actually
+    exist.  It is a Matsui-style depth-first branch and bound:
+
+    * the cost of ``m`` rounds from round-input state ``s`` is the number of
+      active S-boxes of ``s`` plus the cost of ``m - 1`` rounds from a
+      successor; the counts are found for ``r = 1, 2, ...`` in turn;
+    * a budget ``B`` is tested from ``E(r - 1)`` upwards (an ``r``-round
+      trail contains an ``(r - 1)``-round one); a partial trail is cut as
+      soon as its active count plus ``E(m)`` for the ``m`` remaining rounds
+      exceeds ``B``, and a state proved infeasible for ``(m, B)`` is
+      remembered;
+    * only first-round states with at most ``B - E(r - 1)`` active S-boxes
+      can start a trail of cost ``B`` and all of them are enumerated.
+
+    Every pruning rule discards only partial trails whose cost provably
+    exceeds the budget, so the result is exact.  ``tests`` re-derive the
+    first rounds by unpruned enumeration and re-verify every witness trail.
+
+    Returns ``counts[r - 1]`` and, per round count, one witness trail (the
+    round-input states, most significant bit = MSB-first index 0).
+    """
+    if max_rounds < 1:
+        raise ValueError(f"max_rounds must be >= 1, got {max_rounds}")
+    trails = _TrailModel(sbox, model)
+    exact: List[int] = [0]
+    infeasible: Dict[Tuple[int, int], int] = {}
+    nodes = 0
+
+    def search(state: int, rounds: int, budget: int) -> Optional[List[int]]:
+        nonlocal nodes
+        nodes += 1
+        left = budget - len(trails.active(state))
+        if left < 0:
+            return None
+        if rounds == 1:
+            return [state]
+        if left < exact[rounds - 1] or infeasible.get((state, rounds), -1) >= budget:
+            return None
+        for _, nxt, _ in trails.successors(state):
+            tail = search(nxt, rounds - 1, left)
+            if tail is not None:
+                return [state] + tail
+        infeasible[(state, rounds)] = budget
+        return None
+
+    witnesses: List[List[int]] = []
+    for rounds in range(1, max_rounds + 1):
+        budget = exact[rounds - 1]
+        found: Optional[List[int]] = None
+        while found is None:
+            spare = budget - (exact[rounds - 1] if rounds > 1 else 0)
+            for start in trails.start_states(spare):
+                found = search(start, rounds, budget)
+                if found is not None:
+                    break
+            else:
+                budget += 1
+        exact.append(budget)
+        witnesses.append(found)
+    return {
+        "model": model,
+        "counts": exact[1:],
+        "witness_trails": [[f"{s:08X}" for s in trail] for trail in witnesses],
+        "search_nodes": nodes,
+    }
+
+
+def exact_best_trail_weights(sbox: Sequence[int], max_rounds: int,
+                             model: str = "differential",
+                             step: float = 1.0) -> Dict[str, Any]:
+    """Exact weight of the best single characteristic over ``r`` rounds.
+
+    The weight is ``-log2`` of the characteristic probability (differential)
+    or of its absolute correlation (linear), each S-box transition weighted as
+    in :class:`_TrailModel`; it is the quantity the bounds of
+    :func:`trail_bounds` only estimate from active-S-box counts.
+
+    Depth-first branch and bound under a weight cap: ``best(s, m, cap)`` is
+    the exact minimum over ``m``-round trails from ``s`` when that minimum is
+    at most ``cap`` and is reported as "above the cap" otherwise.  Partial
+    trails are cut when their weight plus the per-S-box minimum of the
+    current round plus ``W(m - 1)`` exceeds the cap; the last round costs the
+    lightest output of each active S-box.  For each ``r`` the cap is raised
+    from ``W(r - 1)`` in steps of ``step`` until a trail is found, and only
+    first-round states whose minimal first-round weight plus ``W(r - 1)``
+    fits under the cap are started.  Within a cap the minimum is exact, so the
+    result is exact.
+
+    Returns ``weights[r - 1]`` (float), the corresponding active-S-box count
+    of the best trail and one witness trail per round count.
+    """
+    if max_rounds < 1:
+        raise ValueError(f"max_rounds must be >= 1, got {max_rounds}")
+    if step <= 0:
+        raise ValueError(f"step must be positive, got {step}")
+    trails = _TrailModel(sbox, model)
+    min_w = trails.min_weight
+    lightest = min(min_w[1:])
+    exact: List[float] = [0.0]
+    memo_exact: Dict[Tuple[int, int], Tuple[float, List[int]]] = {}
+    memo_above: Dict[Tuple[int, int], float] = {}
+
+    def best(state: int, rounds: int, cap: float) -> Optional[Tuple[float, List[int]]]:
+        key = (state, rounds)
+        if key in memo_exact:
+            value = memo_exact[key]
+            return value if value[0] <= cap + _WEIGHT_EPS else None
+        if memo_above.get(key, -1.0) >= cap - _WEIGHT_EPS:
+            return None
+        low = sum(min_w[d] for _, d in trails.active(state))
+        if rounds == 1:
+            result = (low, [state])
+            memo_exact[key] = result
+            return result if low <= cap + _WEIGHT_EPS else None
+        if low + exact[rounds - 1] > cap + _WEIGHT_EPS:
+            memo_above[key] = max(memo_above.get(key, -1.0), cap)
+            return None
+        found: Optional[Tuple[float, List[int]]] = None
+        limit = cap
+        for weight, nxt, _ in trails.successors(state):
+            if weight + exact[rounds - 1] > limit + _WEIGHT_EPS:
+                continue
+            tail = best(nxt, rounds - 1, limit - weight)
+            if tail is not None and (found is None
+                                     or weight + tail[0] < found[0] - _WEIGHT_EPS):
+                found = (weight + tail[0], [state] + tail[1])
+                limit = found[0]
+        if found is None:
+            memo_above[key] = max(memo_above.get(key, -1.0), cap)
+            return None
+        memo_exact[key] = found
+        return found
+
+    weights: List[float] = []
+    actives: List[int] = []
+    witnesses: List[List[int]] = []
+    for rounds in range(1, max_rounds + 1):
+        floor = exact[rounds - 1] if rounds > 1 else 0.0
+        cap = floor
+        while True:
+            spare = int((cap - floor + _WEIGHT_EPS) // lightest)
+            winner: Optional[Tuple[float, List[int]]] = None
+            for start in trails.start_states(spare):
+                first = sum(min_w[d] for _, d in trails.active(start))
+                bound = cap if winner is None else winner[0]
+                if first + floor > bound + _WEIGHT_EPS:
+                    continue
+                candidate = best(start, rounds, bound)
+                if candidate is not None and (winner is None
+                                              or candidate[0] < winner[0] - _WEIGHT_EPS):
+                    winner = candidate
+            if winner is not None:
+                break
+            cap += step
+        exact.append(winner[0])
+        weights.append(winner[0])
+        actives.append(sum(len(trails.active(s)) for s in winner[1]))
+        witnesses.append(winner[1])
+    return {
+        "model": model,
+        "weights": weights,
+        "active_sboxes_of_best_trail": actives,
+        "witness_trails": [[f"{s:08X}" for s in trail] for trail in witnesses],
+    }
+
+
+# ============================================================
 # 5. From active S-boxes to trail bounds
 # ============================================================
 #: An attacker of a 32-bit block cipher has at most the full codebook, 2**32
@@ -705,10 +973,126 @@ FINDINGS: Tuple[str, ...] = (
     "State bits 1 and 0 bypass the S-layer, so a trail can cross rounds without "
     "activating any S-box, which is why the 16-round bound stays well below 16 "
     "active S-boxes.",
-    "The 16-round bound therefore does NOT reach the 2**-32 data limit for the "
-    "DAC or the E-DAC S-box: halving the S-box differential probability lowers "
-    "the bound but does not on its own justify the round count.",
+    "The branch-number bound alone therefore does NOT reach the 2**-32 data "
+    "limit at 16 rounds for the DAC or the E-DAC S-box: it knows nothing about "
+    "which DDT/LAT transitions exist.",
+    "The exact search with the real DDT and LAT is sharper: the MILP bound is "
+    "attained by DAC-OPT in both models but not by DAC or E-DAC, and the best "
+    "single characteristic of every S-box of the family crosses the data limit "
+    "within the 16 rounds. On the differential side the APN tables are the last "
+    "to get there, because their single-bit transitions chain through the bit "
+    "permutation: S-box optimality does not transfer to the cipher.",
 )
+
+
+def exact_trail_analysis(tables: Mapping[str, Sequence[int]], weight_rounds: int,
+                         count_rounds: int,
+                         milp_counts: Mapping[str, Mapping[str, Sequence[int]]]
+                         ) -> Dict[str, Any]:
+    """Exact per-S-box trail results next to the S-box-agnostic MILP bound.
+
+    For every S-box and model: the exact minimum number of active S-boxes for
+    ``r = 1 .. count_rounds`` (:func:`exact_min_active_sboxes`), the exact
+    weight of the best single characteristic for ``r = 1 .. weight_rounds``
+    (:func:`exact_best_trail_weights`), the rounds at which each reaches the
+    data limit, and whether the MILP lower bound is attained.
+
+    The data limit is ``2 ** -32`` for a characteristic probability (weight
+    >= 32) and a linear data requirement ``corr ** -2 >= 2 ** 32`` (weight of
+    the absolute correlation >= 16).  ``milp_counts[name][model]`` holds the
+    MILP counts for the branch number of that S-box and model.
+    """
+    report: Dict[str, Any] = {}
+    targets = {"differential": DATA_LIMIT_LOG2, "linear": DATA_LIMIT_LOG2 / 2.0}
+    for name, table in tables.items():
+        entry: Dict[str, Any] = {}
+        params = sbox_trail_parameters(table)
+        per_sbox = {"differential": -params["log2_dp_max"],
+                    "linear": -params["log2_correlation_max"]}
+        for model in ("differential", "linear"):
+            counts = exact_min_active_sboxes(table, count_rounds, model)
+            weights = exact_best_trail_weights(table, weight_rounds, model)
+            milp = [int(v) for v in milp_counts[name][model][:count_rounds]]
+            rounded = [round(w, 6) for w in weights["weights"]]
+            target = targets[model]
+            entry[model] = {
+                "exact_min_active_sboxes": counts["counts"],
+                "milp_min_active_sboxes": milp,
+                "milp_is_tight": [int(e) == int(m) for e, m in zip(counts["counts"], milp)],
+                "first_round_milp_not_tight": next(
+                    (r + 1 for r, (e, m) in enumerate(zip(counts["counts"], milp)) if e != m),
+                    None),
+                "best_trail_weight": rounded,
+                "best_trail_active_sboxes": weights["active_sboxes_of_best_trail"],
+                "count_witness_trails": counts["witness_trails"],
+                "weight_witness_trails": weights["witness_trails"],
+                # bound evaluated at the exact count: weight >= N_exact * w_sbox
+                "count_bound_weight": [round(c * per_sbox[model], 6)
+                                       for c in counts["counts"][:weight_rounds]],
+                "rounds_to_data_limit_exact_weight": next(
+                    (r + 1 for r, w in enumerate(rounded) if w >= target - _WEIGHT_EPS), None),
+                "rounds_to_data_limit_exact_count_bound": next(
+                    (r + 1 for r, c in enumerate(counts["counts"])
+                     if c * per_sbox[model] >= target - _WEIGHT_EPS), None),
+                "weight_at_cipher_rounds": rounded[min(weight_rounds, REPORTED_ROUNDS) - 1],
+                "quantities_at_cipher_rounds": trail_quantities(
+                    rounded[min(weight_rounds, REPORTED_ROUNDS) - 1], model),
+                "searched_rounds_weight": weight_rounds,
+                "searched_rounds_count": count_rounds,
+            }
+        report[name] = entry
+    return report
+
+
+def trail_quantities(weight: float, model: str) -> Dict[str, Any]:
+    """The weight of a best characteristic, spelt out in every unit it implies.
+
+    Differential: ``w = -log2 p`` of the characteristic probability ``p``.
+    Linear: ``w = -log2 |c|`` of the absolute characteristic correlation
+    ``c``; the squared correlation (potential) is ``2^(-2w)`` and the data
+    complexity of a single-characteristic attack is about ``c^-2 = 2^(2w)``
+    known plaintexts.
+    """
+    if model == "differential":
+        return {"weight": weight, "unit": "-log2 of the characteristic probability",
+                "log2_probability": -weight}
+    return {"weight": weight, "unit": "-log2 of the absolute characteristic correlation",
+            "log2_abs_correlation": -weight, "log2_squared_correlation": -2.0 * weight,
+            "log2_data_complexity": 2.0 * weight}
+
+
+#: Pairs ``(first, second)`` compared in the text: the best characteristic of
+#: ``first`` is ``2^(w_second - w_first)`` times as probable as that of ``second``.
+TRAIL_COMPARISONS: Tuple[Tuple[str, str, str], ...] = (
+    ("DAC-OPT", "DAC", "differential"),
+    ("DAC-OPT", "E-DAC", "differential"),
+    ("E-DAC", "DAC", "differential"),
+    ("DAC", "DAC-OPT", "linear"),
+)
+
+
+def trail_comparisons(exact: Mapping[str, Mapping[str, Any]]) -> Dict[str, Any]:
+    """Ratios between best 16-round characteristics, from the exact weights.
+
+    For the differential model the ratio is of probabilities,
+    ``2^(w_second - w_first)``; for the linear model it is of absolute
+    correlations, and the data-complexity ratio is its square.
+    """
+    out: Dict[str, Any] = {}
+    for first, second, model in TRAIL_COMPARISONS:
+        if first not in exact or second not in exact:
+            continue
+        w1 = float(exact[first][model]["weight_at_cipher_rounds"])
+        w2 = float(exact[second][model]["weight_at_cipher_rounds"])
+        diff = round(w2 - w1, 6)
+        entry = {"first": first, "second": second, "model": model,
+                 "weight_first": w1, "weight_second": w2,
+                 "log2_ratio": diff, "ratio": round(2.0 ** diff, 2)}
+        if model == "linear":
+            entry["log2_data_complexity_ratio"] = round(2 * diff, 6)
+            entry["data_complexity_ratio"] = round(2.0 ** (2 * diff), 2)
+        out[f"{model}:{first}/{second}"] = entry
+    return out
 
 
 def analyze_cipher(names: Sequence[str] = SBOX_NAMES,
@@ -750,6 +1134,11 @@ def analyze_cipher(names: Sequence[str] = SBOX_NAMES,
         bounds[name]["rounds_to_data_limit"] = extended["rounds_to_data_limit"]
         bounds[name]["rounds_to_data_limit"]["searched_up_to_rounds"] = extended_rounds
         bounds[name]["at_cipher_rounds"] = bounds[name]["rows"][reported_rounds - 1]
+
+    milp_by_sbox = {name: {model: counts[(model, branches[name][model])]
+                           for model in ("differential", "linear")} for name in tables}
+    exact = exact_trail_analysis(tables, weight_rounds=reported_rounds,
+                                 count_rounds=extended_rounds, milp_counts=milp_by_sbox)
 
     active = {
         "rounds": list(range(1, extended_rounds + 1)),
@@ -795,6 +1184,8 @@ def analyze_cipher(names: Sequence[str] = SBOX_NAMES,
         "bypass_analysis": bypass_trail_analysis(PERM_TABLE),
         "active_sboxes": active,
         "bounds": bounds,
+        "exact_trails": exact,
+        "exact_trail_comparisons": trail_comparisons(exact),
         "test_vectors": {name: generate_test_vectors(table) for name, table in tables.items()},
         "birthday_bound": birthday_bound(BLOCK_SIZE),
         "findings": findings,

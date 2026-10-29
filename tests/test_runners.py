@@ -48,6 +48,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import main as main_runner
 import run_optimized
+import run_studies
 import verify_latex as vl
 from src.chaotic_maps import default_maps
 from src.comparative_analysis import COMPARISON_ROWS
@@ -243,12 +244,42 @@ def runner_output(tmp_path_factory):
         first_main = handle.read()
     assert main_runner.main(argv) == 0
     assert run_optimized.main(argv) == 0
+    # run_studies.py takes minutes at paper scale and is deterministic, so the
+    # fixture uses the file it wrote into output/ (test_run_studies_quick
+    # exercises the runner itself at smoke-test scale).
+    studies = os.path.join(PROJECT_ROOT, "output", run_studies.RESULTS_FILENAME)
+    assert os.path.exists(studies), "run python run_studies.py first"
+    shutil.copy(studies, os.path.join(output_dir, run_studies.RESULTS_FILENAME))
+    # Likewise run_hardware.py needs Yosys and the Liberty files; the fixture
+    # uses its recorded output.
+    hardware = os.path.join(PROJECT_ROOT, "output", HARDWARE_RESULTS)
+    assert os.path.exists(hardware), "run python run_hardware.py first"
+    shutil.copy(hardware, os.path.join(output_dir, HARDWARE_RESULTS))
     return output_dir, first_main
+
+
+#: File written by run_hardware.py (imported lazily: the runner needs Yosys).
+HARDWARE_RESULTS = "results_hardware.json"
 
 
 def _results_paths(output_dir):
     return [os.path.join(output_dir, main_runner.RESULTS_FILENAME),
-            os.path.join(output_dir, run_optimized.RESULTS_FILENAME)]
+            os.path.join(output_dir, run_optimized.RESULTS_FILENAME),
+            os.path.join(output_dir, run_studies.RESULTS_FILENAME),
+            os.path.join(output_dir, HARDWARE_RESULTS)]
+
+
+def test_run_studies_quick(tmp_path):
+    """``run_studies.py`` runs end to end and writes its schema and archive tables."""
+    out = str(tmp_path)
+    assert run_studies.main(["--quick", "--runs", "2", "--samples", "5",
+                             "--output-dir", out]) == 0
+    data = _load(os.path.join(out, run_studies.RESULTS_FILENAME))
+    assert data["schema"] == run_studies.RESULTS_SCHEMA
+    assert all(entry["all_hold"] for entry in data["metric_identities"].values())
+    assert len(data["archive_tables"]) == 4 * len(data["metric_identities"])
+    for rel in data["archive_tables"]:
+        assert os.path.exists(os.path.join(out, rel))
 
 
 def _load(path):
@@ -295,7 +326,14 @@ def synthetic_tex(merged):
 # ------------------------------------------------------------
 def test_runners_write_separate_files_under_separate_schemas(runner_output):
     output_dir, _ = runner_output
-    main_path, optimized_path = _results_paths(output_dir)
+    main_path, optimized_path, studies_path, hardware_path = _results_paths(output_dir)
+    assert len({os.path.basename(p) for p in (main_path, optimized_path, studies_path,
+                                              hardware_path)}) == 4
+    assert _load(hardware_path)["schema"] not in (main_runner.RESULTS_SCHEMA,
+                                                  run_optimized.RESULTS_SCHEMA,
+                                                  run_studies.RESULTS_SCHEMA)
+    assert run_studies.RESULTS_SCHEMA not in (main_runner.RESULTS_SCHEMA,
+                                              run_optimized.RESULTS_SCHEMA)
     assert os.path.basename(main_path) != os.path.basename(optimized_path)
     assert main_runner.RESULTS_SCHEMA != run_optimized.RESULTS_SCHEMA
     from_main, from_optimized = _load(main_path), _load(optimized_path)
@@ -585,10 +623,11 @@ def test_previously_unchecked_tables_are_now_compared(tex_content, recorded_resu
     assert not any(key.startswith("tab:lyapunov/") for key in keys), keys
     # ...the gate-equivalent table agrees with the recorded literature values...
     assert not any(key.startswith("tab:gate_count/") for key in keys), keys
-    # ...and of tab:benchmarks exactly the wall-clock rows disagree.  The
-    # avalanche ratio is deterministic, so the corrected 0.5014 must match:
+    # ...and of tab:benchmarks only wall-clock rows may disagree (they agree
+    # when the paper prints the recorded run, as it does after a clean re-run).
+    # The avalanche ratio is deterministic, so the corrected 0.5014 must match:
     # it is the one row of that table the paper does not let --allow tolerate.
-    assert keys == {f"tab:benchmarks/software/{vl.slug(row)}"
+    assert keys <= {f"tab:benchmarks/software/{vl.slug(row)}"
                     for row in vl.BENCHMARK_TIMING_ROWS}
     assert "tab:benchmarks/software/cipher_avalanche_ratio" not in keys
 

@@ -1,0 +1,28 @@
+{
+  "title": "Reappraisal of the dynamic Airy chaotic substitution box and affine class selection of power map representatives: code and data",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Lamkuche, Hemraj Shobharam",
+      "affiliation": "VIT Bhopal University",
+      "orcid": "0000-0002-8354-6898"
+    },
+    {
+      "name": "Singh, Krishna Kumar",
+      "affiliation": "Symbiosis Centre for Information Technology",
+      "orcid": "0000-0003-3849-5945"
+    }
+  ],
+  "description": "Code, result files, CSV tables (lookup tables, DDT, LAT, BCT) and mapped gate-level netlists that regenerate every number of the manuscript: metric engine, affine-class selection and its executable specification, exact count of ideal-SAC representatives, generator ablation, affine-class statistics, annealing parameter study, 32-bit example SPN with MILP and exact trail analysis, test vectors, common-condition logic synthesis on two open cell libraries, Verilog descriptions, tests, a tiered verification report and the manuscript verification script.",
+  "keywords": [
+    "S-box",
+    "affine equivalence",
+    "strict avalanche criterion",
+    "differential cryptanalysis",
+    "linear cryptanalysis",
+    "APN functions",
+    "logic synthesis"
+  ],
+  "version": "1.0.0"
+}

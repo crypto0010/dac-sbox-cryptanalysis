@@ -6,10 +6,11 @@ the deposit is made (see ``archive/README.md``), run::
 
     python set_code_doi.py 10.5281/zenodo.1234567
 
-This replaces the placeholder in all five places a reader sees it -- twice in the
-manuscript (Data availability, Code availability) and three times in the response
-letter (E.2, R2.10, R4.7) -- and rebuilds paper.pdf and
-response_to_reviewers_submission.pdf so the typeset documents agree with the source.
+This replaces the placeholder everywhere a reader sees it -- twice in the manuscript
+(Data availability, Code availability), three times in the second-round response
+letter (E.2, R2.10, R4.7), twice in the third-round letter (R2.7, via its
+doifield macro) and in the fourth-round letter (comment 8) -- and rebuilds
+paper.pdf and the response PDFs so the typeset documents agree with the source.
 
 Pass ``--check`` to report where the placeholder still stands without changing
 anything.  The script refuses a DOI that does not look like one, and (unless
@@ -38,6 +39,10 @@ TARGETS: Tuple[Tuple[str, str, int], ...] = (
      "[repository DOI --- to be inserted on deposit]", 1),   # a \doifield macro, used 3x
     ("response_to_reviewers_submission.txt",
      "[repository DOI - to be inserted on deposit]", 3),
+    ("response_to_reviewers_round3.tex",
+     "[repository DOI --- to be inserted on deposit]", 1),   # a \doifield macro, used 2x
+    ("response_to_reviewers_round4.tex",
+     "[repository DOI --- to be inserted on deposit]", 1),   # a \doifield macro
 )
 
 #: A DOI is "10." then a registrant prefix, a slash, and a non-empty suffix.
@@ -82,7 +87,9 @@ def survey() -> List[Tuple[str, str, int, int]]:
 def build(doi: str) -> List[str]:
     """Rebuild both PDFs; returns the log lines worth showing."""
     notes = []
-    for stem, passes in (("paper", 3), ("response_to_reviewers_submission", 3)):
+    for stem, passes in (("paper", 3), ("response_to_reviewers_submission", 3),
+                         ("response_to_reviewers_round3", 2),
+                         ("response_to_reviewers_round4", 2)):
         if not os.path.exists(os.path.join(PROJECT_ROOT, stem + ".tex")):
             continue
         steps = ["pdflatex"]

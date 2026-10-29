@@ -100,6 +100,8 @@ DEFAULT_TEX = os.path.join(PROJECT_ROOT, "paper.tex")
 DEFAULT_RESULTS_FILES: Tuple[str, ...] = (
     os.path.join(PROJECT_ROOT, "output", "results.json"),            # main.py
     os.path.join(PROJECT_ROOT, "output", "results_optimized.json"),  # run_optimized.py
+    os.path.join(PROJECT_ROOT, "output", "results_studies.json"),    # run_studies.py
+    os.path.join(PROJECT_ROOT, "output", "results_hardware.json"),   # run_hardware.py
 )
 #: Backwards-compatible single default (``main.py``'s file).
 DEFAULT_RESULTS = DEFAULT_RESULTS_FILES[0]
@@ -219,7 +221,7 @@ BENCHMARK_ROWS: Dict[str, Tuple[str, float]] = {
 BENCHMARK_TIMING_ROWS = frozenset(BENCHMARK_ROWS) - {"Cipher avalanche ratio"}
 #: ``tab:gate_count``: row label -> key of the paper-reported gate equivalents.
 GATE_COUNT_ROWS: Dict[str, str] = {
-    "DAC / E-DAC": "DAC", "Thakor et al.": "Thakor_et_al", "SKINNY": "SKINNY",
+    "DAC": "DAC", "Thakor et al.": "Thakor_et_al", "SKINNY": "SKINNY",
     "RECTANGLE": "RECTANGLE", "Hummingbird-2": "Hummingbird-2", "PRESENT": "PRESENT",
 }
 GATE_EQUIVALENTS_PATH = "benchmarks.memory.paper_reported.gate_equivalents"
@@ -761,6 +763,102 @@ def check_template(content: str, errors: List[str], warnings: List[str],
 
 
 # ------------------------------------------------------------------
+# Editorial and notation gates (second revision)
+# ------------------------------------------------------------------
+#: The editor's title rules: at most this many words, and none of these marks.
+TITLE_MAX_WORDS = 20
+TITLE_FORBIDDEN = (".", ":", ";", "-", "\u2013", "\u2014", "?", "!")
+#: Equation label -> fragments that must appear in it / must not appear in it.
+#: These pin the single LAT/LAP/correlation convention reviewer 2 asked for:
+#: W = 2 LAT, NL(S) = 2^(n-1) - 2^n LAP, |C_trail| <= (2 LAP)^N.
+EQUATION_FRAGMENTS: Dict[str, Tuple[Tuple[str, ...], Tuple[str, ...]]] = {
+    "eq:consistency": ((r"W_{f_b}(a) &= 2\,\mathrm{LAT}[a][b]",), (r"-2\,\mathrm{LAT}",)),
+    "eq:lap_nl": ((r"C_{\max}(S) = 2\,\mathrm{LAP}(S)",
+                   r"2^{n-1} - 2^n\,\mathrm{LAP}(S)",
+                   r"2^{n-1}\bigl(1 - 2\,\mathrm{LAP}(S)\bigr)"),
+                  (r"\bigl(1 - \mathrm{LAP}(S)\bigr)",)),
+    "eq:trail_lin": ((r"\bigl(2\,\mathrm{LAP}(S)\bigr)^{N_l(r)}",),
+                     (r"\bigl(\mathrm{LAP}(S)\bigr)^{N_l(r)}",)),
+}
+#: Wording that belongs in a response letter, not in the article (third-round
+#: review, comment 7).  Checked case-insensitively outside comments, labels
+#: and references.
+REVIEWER_FACING_PHRASES: Tuple[str, ...] = (
+    "original submission", "previous version", "earlier version", "present revision",
+    "this revision", "reviewer", "withdrawn", "withdraw", "honest", "deserves a direct",
+    "phantom", "proof-of-concept", "refutes", "without overstatement",
+    "stated explicitly", "rather than omitted",
+)
+
+
+def _braced(text: str, start: int) -> Tuple[str, int]:
+    """Contents of the brace group opening at ``text[start] == '{'``."""
+    depth, index = 0, start
+    while index < len(text):
+        if text[index] == "{":
+            depth += 1
+        elif text[index] == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start + 1:index], index + 1
+        index += 1
+    raise ValueError("unbalanced braces")
+
+
+def title_texts(content: str) -> Tuple[Optional[str], Optional[str]]:
+    """``(short title, full title)`` of ``\\title[short]{full}``."""
+    code = strip_comments(content)
+    match = re.search(r"\\title(\[([^\]]*)\])?\s*\{", code)
+    if match is None:
+        return None, None
+    full, _ = _braced(code, match.end() - 1)
+    return match.group(2), full
+
+
+def check_editorial(content: str, errors: List[str]) -> None:
+    """Title rules of the editor and the notation pinned by reviewer 2."""
+    print("\n--- Editorial and notation gates ---")
+    short, full = title_texts(content)
+    if full is None:
+        errors.append("No \\title in the paper")
+        return
+    for label, text in (("title", full), ("running title", short)):
+        if text is None:
+            continue
+        plain = " ".join(re.sub(r"\\[A-Za-z]+|[{}$]", " ", text).split())
+        words = len(plain.split())
+        marks = sorted({mark for mark in TITLE_FORBIDDEN if mark in plain})
+        print(f"  {label}: {words} words, forbidden marks: {marks or 'none'}")
+        if words > TITLE_MAX_WORDS:
+            errors.append(f"{label} has {words} words; the editor allows at most "
+                          f"{TITLE_MAX_WORDS}")
+        if marks:
+            errors.append(f"{label} contains {', '.join(repr(m) for m in marks)}; the editor "
+                          "requires no full stops, hyphens, colons or semicolons")
+    for label, (required, forbidden) in EQUATION_FRAGMENTS.items():
+        match = re.search(r"\\begin\{(equation|align)\}(?:(?!\\end\{\1\}).)*?\\label\{"
+                          + re.escape(label) + r"\}", content, re.DOTALL)
+        if match is None:
+            errors.append(f"{label}: equation not found")
+            continue
+        body = match.group(0)
+        missing = [frag for frag in required if frag not in body]
+        present = [frag for frag in forbidden if frag in body]
+        print(f"  {label}: {'PASS' if not missing and not present else 'FAIL'}")
+        for frag in missing:
+            errors.append(f"{label} no longer states {frag!r} (reviewer 2, points 1-2)")
+        for frag in present:
+            errors.append(f"{label} contains the corrected form {frag!r}")
+    code = re.sub(r"\\(?:label|ref|eqref)\{[^}]*\}", "", strip_comments(content))
+    body = code.split("\\begin{document}", 1)[-1].lower()
+    found = [phrase for phrase in REVIEWER_FACING_PHRASES if phrase in body]
+    print(f"  reviewer-facing wording: {', '.join(found) if found else 'none'}")
+    for phrase in found:
+        errors.append(f"the article contains the response-letter wording {phrase!r} "
+                      "(third-round comment 7)")
+
+
+# ------------------------------------------------------------------
 # Numeric consistency against results.json
 # ------------------------------------------------------------------
 #: Bibliography keys that have genuinely never been assigned a DOI: the Keccak
@@ -838,7 +936,11 @@ class NumericCheck:
                                "lyapunov", "benchmarks", "gate_count",
                                "active_sboxes", "cipher_bounds", "test_vectors",
                                "bct_spectrum", "algebraic_immunity",
-                               "sac_deviation", "benchmark_env")
+                               "sac_deviation", "benchmark_env",
+                               "comparison_identities", "exact_trails", "invariants",
+                               "ablation", "sa_budget", "sa_temperature",
+                               "trail_units", "trail_prose", "sac_count",
+                               "worked_example", "hardware")
     #: ``\\label`` name each check reads, for the "table not found" report.
     CHECK_LABELS: Dict[str, str] = {
         "corrected_metrics": "tab:corrected_metrics", "comparison": "tab:comparison",
@@ -852,6 +954,12 @@ class NumericCheck:
         "bct_spectrum": "tab:bct_spectrum",
         "algebraic_immunity": "tab:algebraic_immunity",
         "sac_deviation": "tab:sac_deviation", "benchmark_env": "tab:benchmark_env",
+        "comparison_identities": "tab:comparison", "exact_trails": "tab:exact_trails",
+        "invariants": "tab:invariants", "ablation": "tab:ablation",
+        "sa_budget": "tab:sa_budget", "sa_temperature": "tab:sa_temperature",
+        "trail_units": "tab:trail_units", "trail_prose": "Section sec:exact (prose)",
+        "sac_count": "tab:sac_count", "worked_example": "eq:worked_example",
+        "hardware": "tab:hardware",
     }
 
     def __init__(self, content: str, results: Mapping[str, Any]) -> None:
@@ -1468,6 +1576,429 @@ class NumericCheck:
                                        f"paper {row[1]!r}, computed {computed!r}")
         self._require_labels("tab:benchmark_env", list(BENCHMARK_ENV_ROWS), seen)
 
+    # -- second revision ------------------------------------------------
+    def _raw_rows(self, label: str) -> List[List[str]]:
+        """Rows of ``label`` with cells only stripped, not cleaned (math kept).
+
+        The labels of the second-revision tables are mathematical
+        (``$\\delta$``, ``$x^{-1}$``) and :func:`clean_cell` would erase them.
+        """
+        match = re.search(r"\\label\{" + re.escape(label) + r"\}.*?\\begin\{tabular\}"
+                          r"\{[^}]*\}(.*?)\\end\{tabular\}", self.content, re.DOTALL)
+        if match is None:
+            self.missing_tables.append(label)
+            self.errors.append(f"{label}: table not found -- no tabular follows "
+                               f"\\label{{{label}}}")
+            return []
+        rows = []
+        for raw in match.group(1).split("\\\\"):
+            raw = re.sub(r"\\(?:top|mid|bottom)rule", "", raw)
+            if "&" not in raw or "\\multicolumn" in raw:
+                continue
+            rows.append([" ".join(cell.split()) for cell in raw.split("&")])
+        return rows
+
+    @staticmethod
+    def _numbers(cell: str) -> List[str]:
+        """Every numeric token of a cell, ``/`` and ``%`` treated as separators."""
+        return NUMBER_RE.findall(clean_cell(cell).replace("/", " ").replace("%", " "))
+
+    def comparison_identities(self) -> None:
+        """Every row of ``tab:comparison`` obeys NL = 16 - 32 LAP and 32 DP = delta."""
+        rows = self._rows("tab:comparison")
+        for row in rows:
+            if len(row) < 1 + len(COMPARISON_COLUMNS):
+                continue
+            values = dict(zip(COMPARISON_COLUMNS, row[1:]))
+            nl, lap, dp = (parse_number(values[k]) for k in ("nl_sbox", "lap", "dp"))
+            if None in (nl, lap, dp):
+                continue
+            self.compared += 1
+            if abs(nl - (16 - 32 * lap)) > 1e-9:
+                self.mismatches.append(f"tab:comparison / {row[0]}: NL {nl:g} != "
+                                       f"16 - 32 LAP = {16 - 32 * lap:g}")
+            delta = 32 * dp
+            if abs(delta - round(delta)) > 1e-9 or round(delta) % 2:
+                self.mismatches.append(f"tab:comparison / {row[0]}: 32 DP = {delta:g} is "
+                                       "not an even differential uniformity")
+
+    def exact_trails(self) -> None:
+        """``tab:exact_trails`` vs ``cipher_analysis.exact_trails``."""
+        exact = self._cipher("exact_trails")
+        rows = self._raw_rows("tab:exact_trails")
+        if not isinstance(exact, Mapping):
+            return
+        models = {"diff.": "differential", "lin.": "linear"}
+        seen = []
+        for row in rows:
+            if len(row) < 7 or row[0] not in exact or row[1] not in models:
+                continue
+            entry = exact[row[0]][models[row[1]]]
+            where = f"{row[0]} {row[1]}"
+            seen.append(where)
+            first_gap = entry["first_round_milp_not_tight"]
+            tight_to = 16 if first_gap is None or first_gap > 16 else first_gap - 1
+            for cell, value, key in (
+                    (row[2], entry["milp_min_active_sboxes"][15], "MILP N(16)"),
+                    (row[3], entry["exact_min_active_sboxes"][15], "exact N(16)"),
+                    (row[4], tight_to, "tight to"),
+                    (row[5], entry["weight_at_cipher_rounds"], "best weight"),
+                    (row[6], entry["rounds_to_data_limit_exact_weight"], "limit")):
+                self._compare_number("tab:exact_trails", where, key, cell, value)
+        if rows:
+            self._require_labels("tab:exact_trails",
+                                 [f"{n} {m}" for n in exact for m in models], seen)
+
+    INVARIANT_ROWS: Dict[str, str] = {
+        r"$\delta$": "differential_uniformity", r"$\mathcal{NL}(S)$": "nl_sbox",
+        "LAP": "lap", r"$\deg$": "min_degree", r"$\beta$": "boomerang_uniformity",
+        r"$\mathrm{AI}(S)$": "ai_sbox", "BIC-NL": "bic_nl_avg"}
+    VARIABLE_ROWS: Dict[str, str] = {
+        r"SAC $D_{\max}$": "sac_d_max", r"SAC $D_{\mathrm{mean}}$": "sac_d_mean",
+        r"$D^{\mathrm{BIC}}_{\max}$": "bic_sac_d_max",
+        r"$D^{\mathrm{BIC}}_{\mathrm{mean}}$": "bic_sac_d_mean",
+        "FP": "fixed_points", "OFP": "opposite_fixed_points"}
+
+    def invariants(self) -> None:
+        """``tab:invariants`` vs ``affine_class_statistics`` and the frozen tables."""
+        classes = self._require("affine_class_statistics.classes")
+        rows = self._raw_rows("tab:invariants")
+        if not isinstance(classes, Mapping):
+            return
+        columns = (("inverse", 1, "DAC-OPT", 2), ("gold", 3, "DAC-OPT-GOLD", 4))
+        seen = []
+        for row in rows:
+            label = row[0]
+            if len(row) < 5 or (label not in self.INVARIANT_ROWS
+                                and label not in self.VARIABLE_ROWS):
+                continue
+            seen.append(label)
+            for cls, class_col, sbox, search_col in columns:
+                record = classes[cls]
+                if label in self.INVARIANT_ROWS:
+                    key = self.INVARIANT_ROWS[label]
+                    class_value = (record["variable"]["bic_nl_avg"]["min"]
+                                   if key == "bic_nl_avg" else record["invariant"].get(key))
+                    self._compare_number("tab:invariants", cls, key, row[class_col],
+                                         class_value)
+                    self._compare("tab:invariants", sbox, key, clean_cell(row[search_col]))
+                    continue
+                key = self.VARIABLE_ROWS[label]
+                stats = record["variable"][key]
+                numbers = self._numbers(row[class_col])
+                expected = [stats["min"], stats["median"], stats["max"],
+                            100.0 * stats["share_at_zero"]]
+                if len(numbers) != 4:
+                    self.errors.append(f"tab:invariants / {cls} / {key}: expected "
+                                       f"'min / median / max (share%)', got "
+                                       f"{row[class_col]!r}")
+                else:
+                    for name, text, value in zip(("min", "median", "max", "share%"),
+                                                 numbers, expected):
+                        self._compare_number("tab:invariants", cls, f"{key} {name}",
+                                             text, value)
+                self._compare_number("tab:invariants", sbox, key, row[search_col],
+                                     record["reference"][key]["value"])
+        if rows:
+            self._require_labels("tab:invariants",
+                                 list(self.INVARIANT_ROWS) + list(self.VARIABLE_ROWS), seen)
+
+    def ablation(self) -> None:
+        """``tab:ablation`` vs ``generator_ablation``."""
+        report = self._require("generator_ablation.classes")
+        rows = self._raw_rows("tab:ablation")
+        if not isinstance(report, Mapping):
+            return
+        classes = {r"$x^{-1}$": "inverse", r"$x^{3}$": "gold"}
+        sources = {"chaotic map": "chaotic", "PCG64": "pcg64", "Weyl sequence": "weyl",
+                   "lexicographic": "lexicographic"}
+        seen = []
+        for row in rows:
+            if len(row) < 7 or row[0] not in classes or row[1] not in sources:
+                continue
+            cls, kind = classes[row[0]], sources[row[1]]
+            where = f"{cls}/{kind}"
+            seen.append(where)
+            entry = report[cls]
+            if kind == "lexicographic":
+                self._compare_number("tab:ablation", where, "candidates", row[4],
+                                     entry["lexicographic"]["candidates_to_perfect_sac"])
+                continue
+            # columns: class, source, ideal SAC, SAC D_max / D_mean, candidates,
+            # BIC D_max, FP = OFP = 0
+            sac = self._numbers(row[3])
+            row = row[:3] + row[4:]
+            summary = entry["generators"][kind]["summary"]
+            runs = len(entry["generators"][kind]["runs"])
+            ideal = self._numbers(row[2])
+            self._compare_number("tab:ablation", where, "ideal SAC runs", ideal[0],
+                                 summary["runs_reaching_perfect_sac"])
+            self._compare_number("tab:ablation", where, "runs", ideal[1], runs)
+            if len(sac) != 2:
+                self.errors.append(f"tab:ablation / {where}: expected 'D_max / D_mean'")
+            else:
+                self._compare_number("tab:ablation", where, "SAC D_max median", sac[0],
+                                     summary["sac_d_max"]["median"])
+                self._compare_number("tab:ablation", where, "SAC D_mean median", sac[1],
+                                     summary["sac_d_mean"]["median"])
+            reach = summary["candidates_to_perfect_sac"]
+            if reach is None:
+                self.compared += 1
+                if "---" not in row[3]:
+                    self.mismatches.append(f"tab:ablation / {where}: paper {row[3]!r}, "
+                                           "computed: no run found an ideal-SAC basis")
+            else:
+                numbers = self._numbers(row[3])
+                self._compare_number("tab:ablation", where, "candidates median",
+                                     numbers[0], reach["median"])
+                self._compare_number("tab:ablation", where, "candidates max",
+                                     numbers[1], reach["max"])
+            self._compare_number("tab:ablation", where, "BIC D_max median", row[4],
+                                 summary["bic_sac_d_max"]["median"])
+            fp = self._numbers(row[5])
+            self._compare_number("tab:ablation", where, "FP=OFP=0 runs", fp[0],
+                                 summary["runs_with_no_fixed_or_opposite_fixed_point"])
+        if rows:
+            self._require_labels("tab:ablation",
+                                 [f"{c}/{k}" for c in classes.values()
+                                  for k in sources.values()], seen)
+
+    def sa_budget(self) -> None:
+        """``tab:sa_budget`` vs ``annealing_study.budget_sweep``."""
+        sweep = self._require("annealing_study.budget_sweep")
+        rows = self._raw_rows("tab:sa_budget")
+        if not isinstance(sweep, list):
+            return
+        by_n = {int(entry["iterations"]): entry for entry in sweep}
+        seen = []
+        for row in rows:
+            n = parse_number(clean_cell(row[0]))
+            if n is None or int(n) not in by_n or len(row) < 7:
+                continue
+            entry = by_n[int(n)]
+            seen.append(str(int(n)))
+            for cell, value, key in (
+                    (row[1], entry["best_energy"]["min"], "min E"),
+                    (row[2], entry["best_energy"]["median"], "median E"),
+                    (row[3], entry["best_energy"]["max"], "max E"),
+                    (row[4], entry["differential_uniformity"]["min"], "best delta"),
+                    (row[5], entry["differential_uniformity"]["runs_at_min"], "seeds"),
+                    (row[6], entry["accepted_moves"]["median"], "accepted")):
+                self._compare_number("tab:sa_budget", f"N={int(n)}", key, cell, value)
+        if rows:
+            self._require_labels("tab:sa_budget", [str(k) for k in by_n], seen)
+
+    TEMPERATURE_ROWS: Dict[str, Any] = {
+        "$0$ (greedy)": 0.0, r"$0.1\,T_{0,\mathrm{cal}}$": 0.1,
+        r"$T_{0,\mathrm{cal}}$": "calibrated", r"$10\,T_{0,\mathrm{cal}}$": 10.0}
+
+    def sa_temperature(self) -> None:
+        """``tab:sa_temperature`` vs ``annealing_study.temperature_sweep``."""
+        sweep = self._require("annealing_study.temperature_sweep")
+        rows = self._raw_rows("tab:sa_temperature")
+        if not isinstance(sweep, list):
+            return
+        by_factor = {entry["factor"]: entry for entry in sweep}
+        seen = []
+        for row in rows:
+            factor = self.TEMPERATURE_ROWS.get(row[0])
+            if factor is None or factor not in by_factor or len(row) < 6:
+                continue
+            entry = by_factor[factor]
+            seen.append(row[0])
+            if entry["differential_uniformity"]["min"] != 4:
+                self.errors.append(f"tab:sa_temperature / {row[0]}: the column counts seeds "
+                                   f"at delta = 4 but the best delta is "
+                                   f"{entry['differential_uniformity']['min']}")
+            for cell, value, key in (
+                    (row[1], entry["best_energy"]["min"], "min E"),
+                    (row[2], entry["best_energy"]["median"], "median E"),
+                    (row[3], entry["best_energy"]["max"], "max E"),
+                    (row[4], entry["differential_uniformity"]["runs_at_min"], "seeds"),
+                    (row[5], entry["accepted_moves"]["median"], "accepted")):
+                self._compare_number("tab:sa_temperature", str(factor), key, cell, value)
+        if rows:
+            self._require_labels("tab:sa_temperature", list(self.TEMPERATURE_ROWS), seen)
+
+    # -- third revision -------------------------------------------------
+    TRAIL_UNIT_COLUMNS: Tuple[Tuple[str, str], ...] = (
+        ("differential", "log2_probability"), ("linear", "log2_abs_correlation"),
+        ("linear", "log2_squared_correlation"), ("linear", "log2_data_complexity"))
+
+    def trail_units(self) -> None:
+        """``tab:trail_units`` vs ``exact_trails.*.quantities_at_cipher_rounds``."""
+        exact = self._cipher("exact_trails")
+        rows = self._raw_rows("tab:trail_units")
+        if not isinstance(exact, Mapping):
+            return
+        seen = []
+        for row in rows:
+            if len(row) < 5 or row[0] not in exact:
+                continue
+            seen.append(row[0])
+            for cell, (model, key) in zip(row[1:5], self.TRAIL_UNIT_COLUMNS):
+                self._compare_number("tab:trail_units", row[0], f"{model} {key}", cell,
+                                     exact[row[0]][model]["quantities_at_cipher_rounds"][key])
+        if rows:
+            self._require_labels("tab:trail_units", list(exact), seen)
+
+    def trail_prose(self) -> None:
+        """The ratios stated in Section ``sec:exact`` are the computed ones."""
+        comparisons = self._cipher("exact_trail_comparisons")
+        if not isinstance(comparisons, Mapping):
+            return
+        start = self.content.find("\\label{sec:exact}")
+        end = self.content.find("\\label{rem:bound_scope}")
+        text = self.content[start:end] if start >= 0 and end > start else ""
+        expected: List[str] = []
+        main = comparisons.get("differential:DAC-OPT/DAC")
+        if main:
+            expected.append(f"2^{{{main['weight_second']:.3f} - {main['weight_first']:.3f}}} "
+                            f"= 2^{{{main['log2_ratio']:.3f}}}")
+            expected.append(f"\\approx {round(main['ratio'])}")
+            if abs(main["ratio"] - 2048 / 3) < 0.01:
+                expected.append("2048/3")
+        other = comparisons.get("differential:DAC-OPT/E-DAC")
+        if other:
+            expected.append(f"2^{{{other['log2_ratio']:g}}} = {other['ratio']:g}")
+        for fragment in expected:
+            self.compared += 1
+            if fragment not in text:
+                self.mismatches.append(f"sec:exact / prose / ratio: the computed statement "
+                                       f"{fragment!r} is not in the text")
+
+    @staticmethod
+    def _plain_int(cell: str) -> Optional[int]:
+        match = re.search(r"\d[\d{},]*", cell)
+        return int(re.sub(r"[{},]", "", match.group())) if match else None
+
+    @staticmethod
+    def _scientific(cell: str) -> Optional[Tuple[float, str]]:
+        """``$4.91 \\times 10^{-8}$`` or ``$0.3872$`` -> (value, mantissa text)."""
+        match = re.search(r"([\d.]+)\s*\\times\s*10\^\{(-?\d+)\}", cell)
+        if match:
+            return float(match.group(1)) * 10.0 ** int(match.group(2)), match.group(1)
+        number = first_number(cell)
+        return (float(number), number) if number else None
+
+    def sac_count(self) -> None:
+        """``tab:sac_count`` vs ``ideal_sac_counting`` and the class sample."""
+        counting = self._require("ideal_sac_counting")
+        classes = self._require("affine_class_statistics.classes")
+        rows = self._raw_rows("tab:sac_count")
+        if not isinstance(counting, Mapping) or not isinstance(classes, Mapping):
+            return
+        labels = {"$x^{-1}$": "inverse", "$x^{3}$": "gold"}
+        seen = []
+        for row in rows:
+            if len(row) < 6 or row[0] not in labels:
+                continue
+            cls = labels[row[0]]
+            seen.append(row[0])
+            entry = counting[cls]
+            where = f"tab:sac_count / {cls}"
+            numbers = [int(re.sub(r"[{},]", "", n)) for n in re.findall(r"\d[\d{},]*", row[1])]
+            for got, want, key in zip(numbers, (entry["admissible_bases"], entry["input_bases"]),
+                                      ("admissible", "bases")):
+                self.compared += 1
+                if got != want:
+                    self.mismatches.append(f"{where} / {key}: paper {got}, computed {want}")
+            sizes = {int(k): int(v) for k, v in re.findall(r"(\d+)\s*\((\d[\d{},]*)\)",
+                                                            row[2].replace("{,}", ""))}
+            self.compared += 1
+            if sizes != {int(k): int(v) for k, v in entry["zero_set_sizes"].items()}:
+                self.mismatches.append(f"{where} / |Z|: paper {sizes}, computed "
+                                       f"{entry['zero_set_sizes']}")
+            for cell, value, key in ((row[3], entry["ordered_pairs_with_ideal_sac"], "pairs"),
+                                     (row[4], entry["probability_ideal_sac"], "share")):
+                parsed = self._scientific(cell) if "times" in cell or "." in cell else None
+                if parsed is None:
+                    got = self._plain_int(cell)
+                    self.compared += 1
+                    if got != value:
+                        self.mismatches.append(f"{where} / {key}: paper {got}, computed {value}")
+                    continue
+                got, mantissa = parsed
+                self.compared += 1
+                scale = abs(value) / float(mantissa) if float(mantissa) else 1.0
+                if abs(got - value) > tolerance(mantissa) * scale:
+                    self.mismatches.append(f"{where} / {key}: paper {cell}, computed {value:.6g}")
+            sampled = [int(n) for n in re.findall(r"\d+", row[5])]
+            stats = classes[cls]["variable"]["sac_d_max"]
+            samples = self.results.get("affine_class_statistics", {}).get("samples_per_class")
+            if len(sampled) == 2 and samples:
+                self.compared += 2
+                hits = round(stats["share_at_zero"] * samples)
+                if sampled != [hits, samples]:
+                    self.mismatches.append(f"{where} / sampled: paper {sampled}, computed "
+                                           f"{[hits, samples]}")
+        if rows:
+            self._require_labels("tab:sac_count", list(labels), seen)
+
+    def worked_example(self) -> None:
+        """``eq:worked_example`` vs ``algorithm_specification.worked_example``."""
+        ex = self._require("algorithm_specification.worked_example")
+        run = self._require("algorithm_specification.runs.DAC-OPT")
+        match = re.search(r"\\begin\{equation\}(?:(?!\\end\{equation\}).)*?"
+                          r"\\label\{eq:worked_example\}", self.content, re.DOTALL)
+        if not isinstance(ex, Mapping) or not isinstance(run, Mapping):
+            return
+        if match is None:
+            self.missing_tables.append("eq:worked_example")
+            self.errors.append("eq:worked_example: equation not found")
+            return
+        body = " ".join(match.group(0).split())
+        bx, z, fz, afz, s, a, b = (ex["Bx"], ex["z"], ex["F(z)"], ex["A F(z)"], ex["S(x)"],
+                                   run["a"], run["b"])
+        for fragment in (f"Bx = ({bx:05b})_2 = {bx}",
+                         f"z = Bx \\oplus b = {bx} \\oplus {b} = {z}",
+                         f"F(z) = z^{{-1}} = {fz}",
+                         f"A \\cdot {fz} = ({afz:05b})_2 = {afz}",
+                         f"S({ex['x']}) = {afz} \\oplus a = {afz} \\oplus {a} = {s}"):
+            self.compared += 1
+            if fragment not in body:
+                self.mismatches.append(f"eq:worked_example: computed step {fragment!r} "
+                                       "not found in the equation")
+        variates = self.results.get("algorithm_specification", {}).get(
+            "generator_first_variates") or []
+        section = self.content[self.content.find("\\label{sec:procedure}"):
+                               self.content.find("\\label{alg:affine}")]
+        for value in variates:
+            self.compared += 1
+            if f"{value:.9f}" not in section:
+                self.mismatches.append(f"sec:procedure: generator check value {value:.9f} "
+                                       "is not printed")
+
+    HARDWARE_ROWS: Dict[str, Tuple[str, str]] = {
+        "DAC": ("lookup", "DAC"), "E-DAC": ("lookup", "E-DAC"),
+        "DAC-OPT": ("lookup", "DAC-OPT"), "DAC-OPT-GOLD": ("lookup", "DAC-OPT-GOLD"),
+        "ASCON": ("lookup", "ASCON"), r"Keccak-$\chi$": ("lookup", "Keccak-chi"),
+        "PRIMATE": ("lookup", "PRIMATE"), "ASCON (structural)": ("structural", "ASCON"),
+        r"Keccak-$\chi$ (structural)": ("structural", "Keccak-chi")}
+    HARDWARE_COLUMNS: Tuple[Tuple[str, str], ...] = tuple(
+        (lib, key) for lib in ("nangate45", "sky130hd")
+        for key in ("area_ge", "logic_depth", "delay_ps", "energy_fj_per_evaluation"))
+
+    def hardware(self) -> None:
+        """``tab:hardware`` vs ``results_hardware.json``."""
+        hw = self._require("hardware")
+        rows = self._raw_rows("tab:hardware")
+        if not isinstance(hw, Mapping):
+            return
+        seen = []
+        for row in rows:
+            if len(row) < 9 or row[0] not in self.HARDWARE_ROWS:
+                continue
+            kind, name = self.HARDWARE_ROWS[row[0]]
+            seen.append(row[0])
+            for cell, (lib, key) in zip(row[1:9], self.HARDWARE_COLUMNS):
+                record = hw[kind][lib][name]
+                if not record.get("functionally_verified"):
+                    self.errors.append(f"tab:hardware / {lib} / {name}: netlist not verified")
+                self._compare_number("tab:hardware", f"{lib}/{name}", key, cell, record[key])
+        if rows:
+            self._require_labels("tab:hardware", list(self.HARDWARE_ROWS), seen)
+
     def run(self) -> None:
         """Run every registered check; a check comparing nothing is an error.
 
@@ -1600,6 +2131,7 @@ def verify(tex_path: str = DEFAULT_TEX,
     check_packages(content, warnings)
     check_common_errors(content, lines, errors, warnings)
     check_template(content, errors, warnings, tex_dir)
+    check_editorial(content, errors)
     mismatches = check_numbers(content, list(results_paths), errors, warnings)
 
     print(f"\n{'=' * 70}")

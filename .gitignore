@@ -5,8 +5,21 @@ __pycache__/
 .benchmarks/
 dist/
 
-# Generated output: recreated by main.py / run_optimized.py
-output/
+# Generated output: recreated by main.py / run_optimized.py / run_studies.py.
+# The three result files and the CSV tables ARE archived (the manuscript's Data
+# availability statement promises them); the figures are not.
+output/*
+!output/results.json
+!output/results_optimized.json
+!output/results_studies.json
+!output/results_hardware.json
+!output/verification_report.*
+!output/MANIFEST.json
+!output/tables/
+!output/netlists/
+
+# Downloaded cell libraries and synthesis scratch files (fetched by run_hardware.py)
+hdl/synth/
 
 # LaTeX build artefacts
 *.aux

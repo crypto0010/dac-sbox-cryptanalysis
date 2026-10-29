@@ -13,13 +13,12 @@
 // every vector of the self-checking testbench dac_sbox_tb.v are verified
 // against the Python model by tests/test_hdl.py.
 //
-// Area / timing: no gate-equivalent or delay figures are given for this
-// file.  Such numbers require synthesis with a specific cell library or
-// device and are not derived from the HDL; none has been performed.  (The
-// base paper reports hardware figures for a Cyclone IV FPGA target; they
-// are claims about an unpublished circuit, not results of this lookup-table
-// description, and earlier versions of this header wrongly presented them
-// as such.)
+// Area / timing: this file states no gate-equivalent or delay figure; such
+// numbers depend on the cell library and the flow and are not derived from
+// the HDL.  Common-condition synthesis results for the DAC table (Yosys/ABC
+// on NanGate45 and SKY130) are produced by run_hardware.py and recorded in
+// output/results_hardware.json.  (The base paper reports hardware figures
+// for a Cyclone IV FPGA target; they refer to the circuit of that work.)
 // ============================================================================
 
 module dac_sbox (

@@ -564,30 +564,60 @@ def sa_energy(sbox: Sequence[int]) -> float:
 
 def simulated_annealing(initial_sbox: Sequence[int], iterations: int, rng: ChaoticRNG,
                         calibration_moves: int = 200,
-                        final_temperature_ratio: float = 1e-3
+                        final_temperature_ratio: float = 1e-3,
+                        initial_temperature: Optional[float] = None
                         ) -> Tuple[np.ndarray, Dict[str, Any]]:
     """Swap-move simulated annealing on :func:`sa_energy`.
 
-    The initial temperature ``T0`` is calibrated so that the median uphill
-    move among ``calibration_moves`` random swaps of the start table is
-    accepted with probability 1/2 (``T0 = median / ln 2``); the temperature
-    then decays geometrically to ``T0 * final_temperature_ratio`` over
-    ``iterations`` moves.  Returns the lowest-energy table visited and the
-    run statistics.
+    Parameter domains (checked; anything else raises ``ValueError``):
+
+    * ``iterations`` -- the number ``N`` of proposed swaps, an integer
+      ``N >= 1``.  ``N = 1`` is legal: it proposes one swap and returns the
+      better of the start table and its neighbour.
+    * ``initial_temperature`` -- ``T0 >= 0``, or ``None`` (default) for the
+      calibrated value: ``T0`` is set so that the median uphill move among
+      ``calibration_moves`` random swaps of the start table is accepted with
+      probability 1/2, ``T0 = median / ln 2``.  ``T0 = 0`` is the zero-
+      temperature limit of the Metropolis rule, i.e. greedy descent: a move
+      is accepted iff it does not increase the energy, and the exponential
+      ``exp(-delta / T)`` is never evaluated (it is undefined at ``T = 0``).
+      When the calibration finds no uphill move at all the same greedy rule
+      is used, since there is then no scale to calibrate against.
+    * ``final_temperature_ratio`` -- ``T_end / T0`` in ``(0, 1]``; the
+      temperature decays geometrically, ``alpha = ratio ** (1 / N)``.
+    * ``calibration_moves`` -- an integer ``>= 1`` when ``T0`` is
+      calibrated.
+
+    Returns the lowest-energy table visited and the run statistics.
     """
-    if iterations < 1:
-        raise ValueError("iterations must be >= 1")
+    if isinstance(iterations, bool) or int(iterations) != iterations or iterations < 1:
+        raise ValueError(f"iterations must be an integer >= 1, got {iterations!r}")
+    iterations = int(iterations)
+    if initial_temperature is not None and not (initial_temperature >= 0.0
+                                                and math.isfinite(initial_temperature)):
+        raise ValueError(f"initial_temperature must be finite and >= 0, "
+                         f"got {initial_temperature!r}")
+    if not 0.0 < final_temperature_ratio <= 1.0:
+        raise ValueError(f"final_temperature_ratio must lie in (0, 1], "
+                         f"got {final_temperature_ratio!r}")
+    if initial_temperature is None and calibration_moves < 1:
+        raise ValueError(f"calibration_moves must be >= 1, got {calibration_moves!r}")
     state = np.array(initial_sbox, dtype=np.int64)
     energy = sa_energy(state)
-    uphill = []
-    for _ in range(calibration_moves):
-        i, j = rng.pair(SIZE)
-        state[i], state[j] = state[j], state[i]
-        delta = sa_energy(state) - energy
-        state[i], state[j] = state[j], state[i]
-        if delta > 0:
-            uphill.append(delta)
-    t0 = float(np.median(uphill)) / math.log(2.0) if uphill else 1.0
+    if initial_temperature is None:
+        uphill = []
+        for _ in range(calibration_moves):
+            i, j = rng.pair(SIZE)
+            state[i], state[j] = state[j], state[i]
+            delta = sa_energy(state) - energy
+            state[i], state[j] = state[j], state[i]
+            if delta > 0:
+                uphill.append(delta)
+        t0 = float(np.median(uphill)) / math.log(2.0) if uphill else 0.0
+        calibrated = True
+    else:
+        t0 = float(initial_temperature)
+        calibrated = False
     t_end = t0 * final_temperature_ratio
     alpha = final_temperature_ratio ** (1.0 / iterations)
     temperature = t0
@@ -598,7 +628,8 @@ def simulated_annealing(initial_sbox: Sequence[int], iterations: int, rng: Chaot
         state[i], state[j] = state[j], state[i]
         candidate = sa_energy(state)
         delta = candidate - energy
-        if delta <= 0 or rng.random() < math.exp(-delta / temperature):
+        if delta <= 0 or (temperature > 0.0
+                          and rng.random() < math.exp(-delta / temperature)):
             energy = candidate
             accepted += 1
             if energy < best_energy:
@@ -609,6 +640,8 @@ def simulated_annealing(initial_sbox: Sequence[int], iterations: int, rng: Chaot
     stats = {
         "iterations": int(iterations),
         "initial_temperature": t0,
+        "initial_temperature_calibrated": calibrated,
+        "acceptance_rule": "greedy (T0 = 0)" if t0 == 0.0 else "Metropolis",
         "final_temperature": t_end,
         "cooling_factor": alpha,
         "accepted_moves": accepted,

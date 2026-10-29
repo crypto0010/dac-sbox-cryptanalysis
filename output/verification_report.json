@@ -1,0 +1,298 @@
+{
+  "git_commit": "1ef0fe350591afd74a8d9615855d38b405caabd5",
+  "git_describe": "1ef0fe3-dirty",
+  "tiers": {
+    "A": {
+      "checks": [
+        {
+          "check": "ASCON: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "ASCON: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "ASCON: tables/ASCON_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "ASCON: tables/ASCON_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "ASCON: tables/ASCON_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "DAC: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "DAC: tables/DAC_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC: tables/DAC_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC: tables/DAC_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "DAC-OPT: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "DAC-OPT: tables/DAC-OPT_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT: tables/DAC-OPT_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT: tables/DAC-OPT_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT-GOLD: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "DAC-OPT-GOLD: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "DAC-OPT-GOLD: tables/DAC-OPT-GOLD_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT-GOLD: tables/DAC-OPT-GOLD_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "DAC-OPT-GOLD: tables/DAC-OPT-GOLD_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "E-DAC: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "E-DAC: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "E-DAC: tables/E-DAC_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "E-DAC: tables/E-DAC_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "E-DAC: tables/E-DAC_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "Keccak-chi: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "Keccak-chi: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "Keccak-chi: tables/Keccak-chi_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "Keccak-chi: tables/Keccak-chi_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "Keccak-chi: tables/Keccak-chi_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "PRIMATE: 12 metrics by direct enumeration",
+          "detail": "",
+          "pass": true,
+          "values_compared": 12
+        },
+        {
+          "check": "PRIMATE: NL = 16 - 32 LAP and delta = 32 DP",
+          "detail": "",
+          "pass": true,
+          "values_compared": 2
+        },
+        {
+          "check": "PRIMATE: tables/PRIMATE_ddt.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "PRIMATE: tables/PRIMATE_lat.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "PRIMATE: tables/PRIMATE_bct.csv",
+          "detail": "",
+          "pass": true,
+          "values_compared": 1024
+        },
+        {
+          "check": "ideal-SAC count of the inversion class (brute force: 83,328 bases, 186 admissible, 4,910,400 (A, B) pairs)",
+          "detail": "",
+          "pass": true,
+          "values_compared": 4
+        },
+        {
+          "check": "DAC-OPT: executable Algorithm 2 specification from seed 0.5",
+          "detail": "kept candidate 1233, 60235 draws",
+          "pass": true,
+          "values_compared": 38
+        },
+        {
+          "check": "DAC-OPT-GOLD: executable Algorithm 2 specification from seed 0.5",
+          "detail": "kept candidate 9, 8295 draws",
+          "pass": true,
+          "values_compared": 38
+        }
+      ],
+      "method": "Self-contained enumeration in verify_results.py (no code shared with src/) of every S-box metric, the archived DDT/LAT/BCT CSV files, the metric identities and the exact ideal-SAC count; plus the executable specification of Algorithm 2 (src/algorithm_spec.py).",
+      "passed": true,
+      "seconds": 2.1,
+      "skipped": null,
+      "title": "Direct table enumeration",
+      "values_compared": 21682
+    },
+    "B": {
+      "checks": [
+        {
+          "check": "cipher_analysis (MILP bounds, exact trail search, bypass analysis, test vectors) identical to results.json",
+          "detail": "",
+          "pass": true,
+          "values_compared": 7464
+        }
+      ],
+      "method": "src.cipher_analysis.analyze_cipher re-run: HiGHS MILP (branch-number bound) and Matsui-style branch and bound over the real DDT/LAT; compared leaf by leaf.",
+      "passed": true,
+      "seconds": 33.4,
+      "skipped": null,
+      "title": "MILP bounds and exact trail search",
+      "values_compared": 7464
+    },
+    "C": {
+      "checks": [],
+      "method": "Yosys/ABC synthesis of every S-box on NanGate45 and SKY130 (Liberty files SHA-256 checked), gate-level evaluation on all 32 inputs, area, depth, delay, energy and leakage recomputed.",
+      "passed": false,
+      "seconds": 0.0,
+      "skipped": "run with --hardware",
+      "title": "Logic synthesis",
+      "values_compared": 0
+    },
+    "D": {
+      "checks": [
+        {
+          "check": "every tabulated value of the manuscript equals the result files (machine-dependent wall-clock rows excepted)",
+          "detail": "",
+          "pass": true,
+          "values_compared": 711
+        }
+      ],
+      "method": "verify_latex.py: every number printed in the tables of paper.tex.",
+      "passed": true,
+      "seconds": 0.1,
+      "skipped": null,
+      "title": "Manuscript against the result files",
+      "values_compared": 711
+    }
+  },
+  "versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "prettytable": "3.17.0",
+    "pytest": "9.0.2",
+    "python": "3.12.10",
+    "scipy": "1.17.0",
+    "wasmtime": "47.0.1",
+    "yowasp-runtime": "1.96",
+    "yowasp-yosys": "0.70.0.0.post1259"
+  },
+  "working_tree_clean": false
+}

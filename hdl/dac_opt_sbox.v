@@ -17,9 +17,11 @@
 //
 // Modules: dac_opt_sbox (S), dac_opt_sbox_inv (S^-1); testbench dac_opt_sbox_tb.v.
 //
-// Area / timing: no gate-equivalent or delay figures are given for this file.
-// Such numbers require synthesis with a specific cell library or device and
-// are not derived from the HDL; none has been performed.
+// Area / timing: this file states no gate-equivalent or delay figure; such
+// numbers depend on the cell library and the flow and are not derived from the
+// HDL.  Common-condition synthesis results for this table (Yosys/ABC on
+// NanGate45 and SKY130) are produced by run_hardware.py and recorded in
+// output/results_hardware.json.
 // ============================================================================
 
 // ----------------------------------------------------------------------------

@@ -147,7 +147,10 @@ def test_hdl_headers_make_no_unsupported_hardware_claims():
         assert "11.25" not in text, path.name
         assert "6.225" not in text, path.name
     for file_name in ("dac_sbox.v", "dac_opt_sbox.v"):
-        assert "not derived from the HDL" in _read(HDL_DIR / file_name)
+        # header comments are wrapped, so compare with the line breaks removed
+        flat = " ".join(_read(HDL_DIR / file_name).replace("\n//", " ").split())
+        assert "not derived from the HDL" in flat
+        assert "run_hardware.py" in flat
 
 
 # ------------------------------------------------------------

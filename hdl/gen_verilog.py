@@ -34,7 +34,7 @@ verify that the committed files are up to date; :func:`parse_case_table`
 and :func:`parse_vector_array` read the tables back out of any of the files.
 No area or timing figures are emitted: those require synthesis with a
 specific cell library or device and cannot be derived from a lookup-table
-description.
+description alone; ``run_hardware.py`` performs that synthesis.
 """
 
 from __future__ import annotations
@@ -61,9 +61,11 @@ THIN_RULE = "// " + "-" * 76
 
 #: Honest replacement for the base paper's unsupported "11.25 GE / 6.225 ns".
 AREA_NOTE = (
-    "Area / timing: no gate-equivalent or delay figures are given for this "
-    "file.  Such numbers require synthesis with a specific cell library or "
-    "device and are not derived from the HDL; none has been performed."
+    "Area / timing: this file states no gate-equivalent or delay figure; such "
+    "numbers depend on the cell library and the flow and are not derived from "
+    "the HDL.  Common-condition synthesis results for this table (Yosys/ABC on "
+    "NanGate45 and SKY130) are produced by run_hardware.py and recorded in "
+    "output/results_hardware.json."
 )
 
 _CASE_ENTRY = re.compile(r"5'd(\d+)\s*:\s*data_out\s*=\s*5'd(\d+)\s*;")

@@ -281,6 +281,16 @@ def run_cipher_analysis(quick: bool) -> Dict[str, Any]:
         print(f"    {name:14s}: differential {limit['differential']}, "
               f"linear {limit['linear']}")
 
+    print("\n--- Exact trail search with the real DDT / LAT (Matsui-style) ---")
+    for name, entry in analysis["exact_trails"].items():
+        for model in ("differential", "linear"):
+            row = entry[model]
+            print(f"  {name:14s} {model:12s}: exact active "
+                  f"{row['exact_min_active_sboxes'][:rounds]} | MILP tight from r=1 to "
+                  f"{(row['first_round_milp_not_tight'] or rounds + 1) - 1} | best "
+                  f"weight at {rounds} rounds {row['weight_at_cipher_rounds']:.3f} | "
+                  f"data limit at r = {row['rounds_to_data_limit_exact_weight']}")
+
     print("\n--- Test vectors (every one verified by decryption) ---")
     for name, vectors in analysis["test_vectors"].items():
         print(f"  {name}:")

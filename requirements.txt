@@ -4,3 +4,7 @@ scipy==1.17.0
 matplotlib==3.10.8
 prettytable==3.17.0
 pytest==9.0.2
+# Logic synthesis for run_hardware.py (Yosys 0.70 compiled to WebAssembly; pure pip install)
+yowasp-yosys==0.70.0.0.post1259
+yowasp-runtime==1.96
+wasmtime==47.0.1

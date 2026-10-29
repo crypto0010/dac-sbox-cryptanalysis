@@ -703,6 +703,75 @@ def compute_algebraic_immunity(sbox: Sequence[int], n: int = 5,
 
 
 # ============================================================
+# 9b. Fixed points and the automatic metric identities
+# ============================================================
+def compute_fixed_points(sbox: Sequence[int], n: int = 5) -> Metrics:
+    """Fixed points ``S(x) = x`` and opposite fixed points ``S(x) = ~x``.
+
+    Neither count is invariant under affine equivalence (the constants of
+    ``A F(B x ^ b) ^ a`` move them freely), which is why they belong to the
+    representative-dependent criteria of an affine class.
+    """
+    _, arr = _prepare(sbox, n)
+    x = np.arange(1 << n, dtype=np.int64)
+    complement = (1 << n) - 1
+    return {
+        "fixed_points": int(np.count_nonzero(arr == x)),
+        "opposite_fixed_points": int(np.count_nonzero(arr == (x ^ complement))),
+    }
+
+
+def check_metric_identities(sbox: Sequence[int], n: int = 5) -> Dict[str, Any]:
+    """Re-derive the normalisation identities of the paper from raw tables.
+
+    With ``LAT[a, b] = #{x : a.x = b.S(x)} - 2^(n-1)`` and
+    ``LAP(S) = max |LAT| / 2^n`` (non-trivial masks) the identities are
+
+    * ``W_{f_b}(a) = 2 LAT[a, b]`` for every ``(a, b)``;
+    * ``C_max = max |W| / 2^n = 2 LAP(S)`` (maximal absolute correlation);
+    * ``NL(S) = 2^(n-1) - max |W| / 2 = 2^(n-1) - 2^n LAP(S)
+      = 2^(n-1) (1 - 2 LAP(S))``;
+    * ``delta(S) = 2^n DP(S)``.
+
+    Each side is computed by a different routine (the Walsh matrix, the LAT,
+    the component nonlinearities, the DDT), so a normalisation slip anywhere
+    in the pipeline makes the corresponding flag false.  Runners refuse to
+    write results when any flag is false.
+    """
+    t, arr = _prepare(sbox, n)
+    size = 1 << n
+    walsh = _walsh(arr, t)
+    lat = compute_lat(sbox, n)
+    ddt = compute_ddt(sbox, n)
+    nl = compute_nonlinearity(sbox, n)
+    lap = float(lat["lap"])
+    max_walsh = int(np.abs(walsh[:, 1:]).max())
+    correlation_max = max_walsh / size
+    checks = {
+        "walsh_equals_twice_lat": bool(np.array_equal(walsh, 2 * lat["table"])),
+        "correlation_max_equals_twice_lap": math.isclose(correlation_max, 2.0 * lap),
+        "nl_equals_half_size_minus_size_times_lap":
+            nl["nl_sbox"] == size // 2 - round(size * lap),
+        "nl_equals_half_size_minus_half_max_walsh":
+            nl["nl_sbox"] == size // 2 - max_walsh // 2,
+        "du_equals_size_times_dp":
+            ddt["differential_uniformity"] == round(size * ddt["dp"]),
+    }
+    return {
+        "checks": checks,
+        "all_hold": all(checks.values()),
+        "values": {
+            "lap": lap,
+            "correlation_max": correlation_max,
+            "nl_sbox": int(nl["nl_sbox"]),
+            "nl_from_lap": size / 2 - size * lap,
+            "differential_uniformity": int(ddt["differential_uniformity"]),
+            "du_from_dp": size * float(ddt["dp"]),
+        },
+    }
+
+
+# ============================================================
 # Fast path for optimisers
 # ============================================================
 def fast_metrics(sbox_array: Sequence[int], n: int = 5) -> Dict[str, float]:
@@ -806,6 +875,8 @@ def _collect(sbox: Sequence[int], n: int) -> Dict[str, Optional[Metrics]]:
         "bct": compute_bct(sbox, n) if bij["is_bijective"] else None,
         "degree": compute_algebraic_degree(sbox, n),
         "algebraic_immunity": compute_algebraic_immunity(sbox, n),
+        "fixed_points": compute_fixed_points(sbox, n),
+        "identities": check_metric_identities(sbox, n),
     }
 
 
@@ -815,6 +886,7 @@ def _flatten(nested: Dict[str, Optional[Metrics]], name: str, n: int) -> Metrics
     hd, lat, ddt = nested["hamming_distance"], nested["lat"], nested["ddt"]
     bic, bct, deg = nested["bic"], nested["bct"], nested["degree"]
     ai = nested["algebraic_immunity"]
+    fp, ident = nested["fixed_points"], nested["identities"]
     return {
         "name": name,
         "n": n,
@@ -851,6 +923,11 @@ def _flatten(nested: Dict[str, Optional[Metrics]], name: str, n: int) -> Metrics
         "lap": lat["lap"],
         "lap_half": lat["lap_half"],
         "linear_probability": lat["linear_probability"],
+        "correlation_max": ident["values"]["correlation_max"],
+        "metric_identities": dict(ident["checks"]),
+        "metric_identities_hold": ident["all_hold"],
+        "fixed_points": fp["fixed_points"],
+        "opposite_fixed_points": fp["opposite_fixed_points"],
         "differential_uniformity": ddt["differential_uniformity"],
         "dp": ddt["dp"],
         "bic_sac_avg": bic["avg_bic_sac"],
